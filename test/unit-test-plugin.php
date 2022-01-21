@@ -3,10 +3,10 @@
 class PluginTest extends TestCase
 {
     public function test_plugin_installed() {
-        activate_plugin( 'disciple-tools-plugin-starter-template/disciple-tools-plugin-starter-template.php' );
+        activate_plugin( 'disciple-tools-prayer-requests/disciple-tools-prayer-requests.php' );
 
         $this->assertContains(
-            'disciple-tools-plugin-starter-template/disciple-tools-plugin-starter-template.php',
+            'disciple-tools-prayer-requests/disciple-tools-prayer-requests.php',
             get_option( 'active_plugins' )
         );
     }
