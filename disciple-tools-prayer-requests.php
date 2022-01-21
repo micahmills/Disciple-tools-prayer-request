@@ -1,29 +1,27 @@
 <?php
 /**
  * Plugin Name: Disciple.Tools - Prayer Requests
- * Plugin URI: https://github.com/DiscipleTools/disciple-tools-prayer-requests
- * Description: Disciple.Tools - Prayer Requests is intended to help developers and integrator jumpstart their extension of the Disciple.Tools system.
+ * Plugin URI: https://github.com/micahmills/disciple-tools-prayer-request
+ * Description: Disciple.Tools - Prayer Requests easily share prayer requests with your team
  * Text Domain: disciple-tools-prayer-requests
  * Domain Path: /languages
  * Version:  0.1
- * Author URI: https://github.com/DiscipleTools
- * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-prayer-requests
+ * Author URI: https://github.com/micahmills
+ * GitHub Plugin URI: https://github.com/micahmills/disciple-tools-prayer-request
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
  * Tested up to: 5.6
  *
  * @package Disciple_Tools
- * @link    https://github.com/DiscipleTools
+ * @link    https://github.com/micahmills/disciple-tools-prayer-request
  * @license GPL-2.0 or later
  *          https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 /**
  * Refactoring (renaming) this plugin as your own:
- * 1. @todo Rename the `disciple-tools-prayer-requests.php file.
- * 2. @todo Refactor all occurrences of the name Disciple_Tools_Prayer_Requests, disciple_tools_prayer_requests, disciple-tools-prayer-requests, prayer_request, and "Prayer Requests"
- * 3. @todo Update the README.md and LICENSE
- * 4. @todo Update the default.pot file if you intend to make your plugin multilingual. Use a tool like POEdit
+ * 1. @todo Update the README.md and LICENSE
+ * 2. @todo Update the default.pot file if you intend to make your plugin multilingual. Use a tool like POEdit
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
