@@ -99,20 +99,6 @@ class Disciple_Tools_Prayer_Requests {
         require_once( 'post-type/loader.php' ); // add starter post type extension to Disciple.Tools system
 
         /**
-         * @todo Decide if you want to create a custom site-to-site link
-         * To remove: delete the line below and remove the folder named /site-link
-         */
-        require_once( 'site-link/custom-site-to-site-links.php' ); // add site to site link class and capabilities
-
-        /**
-         * @todo Decide if you want to add new charts to the metrics section
-         * To remove: delete the line below and remove the folder named /charts
-         */
-        if ( strpos( dt_get_url_path(), 'metrics' ) !== false || ( $is_rest && strpos( dt_get_url_path(), 'disciple-tools-prayer-requests-metrics' ) !== false ) ){
-            require_once( 'charts/charts-loader.php' );  // add custom charts to the metrics area
-        }
-
-        /**
          * @todo Decide if you want to add a custom tile or settings page tile
          * To remove: delete the lines below and remove the folder named /tile
          */
