@@ -15,16 +15,16 @@ if ( ! class_exists( 'DT_Module_Base' ) ) {
 add_filter( 'dt_post_type_modules', function( $modules ){
 
     /**
-     * @todo Update the starter in the array below 'starter_base'. Follow the pattern.
-     * @todo Add more modules by adding a new array element. i.e. 'starter_base_two'.
+     * @todo Update the starter in the array below 'prayer_request_base'. Follow the pattern.
+     * @todo Add more modules by adding a new array element. i.e. 'prayer_request_base_two'.
      */
-    $modules["starter_base"] = [
-        "name" => "Starter",
+    $modules["prayer_request_base"] = [
+        "name" => "Prayer Request",
         "enabled" => true,
         "locked" => true,
         "prerequisites" => [ "contacts_base" ],
         "post_type" => "prayer_request",
-        "description" => "Default starter functionality"
+        "description" => "Prayer Request"
     ];
 
     return $modules;

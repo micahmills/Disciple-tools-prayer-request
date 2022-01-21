@@ -59,57 +59,58 @@ class Disciple_Tools_Prayer_Requests_Tile
              * This is an example of a text field
              */
             $fields['disciple_tools_prayer_requests_text'] = [
-                'name'        => __( 'Text', 'disciple-tools-prayer-requests' ),
-                'description' => _x( 'Text', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
-                'type'        => 'text',
+                'name'        => __( 'Prayer Request Content', 'disciple-tools-prayer-requests' ),
+                'description' => _x( 'Prayer Request Content', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
+                'type'        => 'textarea',
                 'default'     => '',
                 'tile' => 'disciple_tools_prayer_requests',
+                "in_create_form" => true,
                 'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
             ];
             /**
              * This is an example of a multiselect field
              */
-            $fields["disciple_tools_prayer_requests_multiselect"] = [
-                "name" => __( 'Multiselect', 'disciple-tools-prayer-requests' ),
-                "default" => [
-                    "one" => [ "label" => __( "One", 'disciple-tools-prayer-requests' ) ],
-                    "two" => [ "label" => __( "Two", 'disciple-tools-prayer-requests' ) ],
-                    "three" => [ "label" => __( "Three", 'disciple-tools-prayer-requests' ) ],
-                    "four" => [ "label" => __( "Four", 'disciple-tools-prayer-requests' ) ],
-                ],
-                "tile" => "disciple_tools_prayer_requests",
-                "type" => "multi_select",
-                "hidden" => false,
-                'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
-            ];
+            // $fields["disciple_tools_prayer_requests_multiselect"] = [
+            //     "name" => __( 'Multiselect', 'disciple-tools-prayer-requests' ),
+            //     "default" => [
+            //         "one" => [ "label" => __( "One", 'disciple-tools-prayer-requests' ) ],
+            //         "two" => [ "label" => __( "Two", 'disciple-tools-prayer-requests' ) ],
+            //         "three" => [ "label" => __( "Three", 'disciple-tools-prayer-requests' ) ],
+            //         "four" => [ "label" => __( "Four", 'disciple-tools-prayer-requests' ) ],
+            //     ],
+            //     "tile" => "disciple_tools_prayer_requests",
+            //     "type" => "multi_select",
+            //     "hidden" => false,
+            //     'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
+            // ];
             /**
              * This is an example of a key select field
              */
-            $fields["disciple_tools_prayer_requests_keyselect"] = [
-                'name' => "Key Select",
-                'type' => 'key_select',
-                "tile" => "disciple_tools_prayer_requests",
-                'default' => [
-                    'first'   => [
-                        "label" => _x( 'First', 'Key Select Label', 'disciple-tools-prayer-requests' ),
-                        "description" => _x( "First Key Description", "Training Status field description", 'disciple-tools-prayer-requests' ),
-                        'color' => "#ff9800"
-                    ],
-                    'second'   => [
-                        "label" => _x( 'Second', 'Key Select Label', 'disciple-tools-prayer-requests' ),
-                        "description" => _x( "Second Key Description", "Training Status field description", 'disciple-tools-prayer-requests' ),
-                        'color' => "#4CAF50"
-                    ],
-                    'third'   => [
-                        "label" => _x( 'Third', 'Key Select Label', 'disciple-tools-prayer-requests' ),
-                        "description" => _x( "Third Key Description", "Training Status field description", 'disciple-tools-prayer-requests' ),
-                        'color' => "#366184"
-                    ],
-                ],
-                'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
-                "default_color" => "#366184",
-                "select_cannot_be_empty" => true
-            ];
+            // $fields["disciple_tools_prayer_requests_keyselect"] = [
+            //     'name' => "Key Select",
+            //     'type' => 'key_select',
+            //     "tile" => "disciple_tools_prayer_requests",
+            //     'default' => [
+            //         'first'   => [
+            //             "label" => _x( 'First', 'Key Select Label', 'disciple-tools-prayer-requests' ),
+            //             "description" => _x( "First Key Description", "Training Status field description", 'disciple-tools-prayer-requests' ),
+            //             'color' => "#ff9800"
+            //         ],
+            //         'second'   => [
+            //             "label" => _x( 'Second', 'Key Select Label', 'disciple-tools-prayer-requests' ),
+            //             "description" => _x( "Second Key Description", "Training Status field description", 'disciple-tools-prayer-requests' ),
+            //             'color' => "#4CAF50"
+            //         ],
+            //         'third'   => [
+            //             "label" => _x( 'Third', 'Key Select Label', 'disciple-tools-prayer-requests' ),
+            //             "description" => _x( "Third Key Description", "Training Status field description", 'disciple-tools-prayer-requests' ),
+            //             'color' => "#366184"
+            //         ],
+            //     ],
+            //     'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
+            //     "default_color" => "#366184",
+            //     "select_cannot_be_empty" => true
+            // ];
         }
         return $fields;
     }

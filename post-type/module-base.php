@@ -13,9 +13,9 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
      * @var string
      */
     public $post_type = "prayer_request";
-    public $module = "starter_base";
-    public $single_name = 'Starter';
-    public $plural_name = 'Starters';
+    public $module = "prayer_request_base";
+    public $single_name = 'Prayer Request';
+    public $plural_name = 'Prayer Requests';
     public static function post_type(){
         return 'prayer_request';
     }
@@ -120,14 +120,14 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                 'description' => __( 'Set the current status.', 'disciple-tools-prayer-requests' ),
                 'type'        => 'key_select',
                 'default'     => [
-                    'inactive' => [
-                        'label' => __( 'Inactive', 'disciple-tools-prayer-requests' ),
-                        'description' => __( 'No longer active.', 'disciple-tools-prayer-requests' ),
+                    'answered' => [
+                        'label' => __( 'Prayer Request Answered', 'disciple-tools-prayer-requests' ),
+                        'description' => __( 'Prayer request has been answered.', 'disciple-tools-prayer-requests' ),
                         'color' => "#F43636"
                     ],
                     'active'   => [
                         'label' => __( 'Active', 'disciple-tools-prayer-requests' ),
-                        'description' => __( 'Is active.', 'disciple-tools-prayer-requests' ),
+                        'description' => __( 'Prayer request is active.', 'disciple-tools-prayer-requests' ),
                         'color' => "#4CAF50"
                     ],
                 ],
@@ -136,9 +136,20 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                 "default_color" => "#366184",
                 "show_in_table" => 10,
             ];
+            $fields["subassigned"] = [
+                "name" => __( "Visible to", 'disciple_tools' ),
+                "description" => __( "Contact or User that can view this prayer request.", 'disciple_tools' ),
+                "type" => "connection",
+                "post_type" => "prayer_request",
+                "p2p_direction" => "to",
+                "p2p_key" => "prayer_request_to_subassigned",
+                "tile" => "status",
+                "custom_display" => false,
+                'icon' => get_template_directory_uri() . "/dt-assets/images/subassigned.svg?v=2",
+            ];
             $fields['assigned_to'] = [
                 'name'        => __( 'Assigned To', 'disciple-tools-prayer-requests' ),
-                'description' => __( "Select the main person who is responsible for reporting on this record.", 'disciple-tools-prayer-requests' ),
+                'description' => __( "This person is responsible to follow up with and update this prayer request.", 'disciple-tools-prayer-requests' ),
                 'type'        => 'user_select',
                 'default'     => '',
                 'tile' => 'status',
@@ -147,148 +158,67 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
             ];
 
 
-
             /**
              * Common and recommended fields
              */
-            $fields['start_date'] = [
-                'name'        => __( 'Start Date', 'disciple-tools-prayer-requests' ),
-                'description' => '',
-                'type'        => 'date',
-                'default'     => time(),
-                'tile' => 'details',
-                'icon' => get_template_directory_uri() . '/dt-assets/images/date-start.svg',
-            ];
-            $fields['end_date'] = [
-                'name'        => __( 'End Date', 'disciple-tools-prayer-requests' ),
-                'description' => '',
-                'type'        => 'date',
-                'default'     => '',
-                'tile' => 'details',
-                'icon' => get_template_directory_uri() . '/dt-assets/images/date-end.svg',
-            ];
-            $fields["multi_select"] = [
-                'name' => __( 'Multi-Select', 'disciple-tools-prayer-requests' ),
-                'description' => __( "Multi Select Field", 'disciple-tools-prayer-requests' ),
-                'type' => 'multi_select',
-                'default' => [
-                    'item_1' => [
-                        'label' => __( 'Item 1', 'disciple-tools-prayer-requests' ),
-                        'description' => __( 'Item 1.', 'disciple-tools-prayer-requests' ),
-                    ],
-                    'item_2' => [
-                        'label' => __( 'Item 2', 'disciple-tools-prayer-requests' ),
-                        'description' => __( 'Item 2.', 'disciple-tools-prayer-requests' ),
-                    ],
-                    'item_3' => [
-                        'label' => __( 'Item 3', 'disciple-tools-prayer-requests' ),
-                        'description' => __( 'Item 3.', 'disciple-tools-prayer-requests' ),
-                    ],
-                ],
-                "tile" => "details",
-                "in_create_form" => true,
-                'icon' => get_template_directory_uri() . "/dt-assets/images/languages.svg?v=2",
-            ];
+            // $fields['start_date'] = [
+            //     'name'        => __( 'Start Date', 'disciple-tools-prayer-requests' ),
+            //     'description' => '',
+            //     'type'        => 'date',
+            //     'default'     => time(),
+            //     'tile' => 'details',
+            //     'icon' => get_template_directory_uri() . '/dt-assets/images/date-start.svg',
+            // ];
+            // $fields['end_date'] = [
+            //     'name'        => __( 'End Date', 'disciple-tools-prayer-requests' ),
+            //     'description' => '',
+            //     'type'        => 'date',
+            //     'default'     => '',
+            //     'tile' => 'details',
+            //     'icon' => get_template_directory_uri() . '/dt-assets/images/date-end.svg',
+            // ];
+            // $fields["multi_select"] = [
+            //     'name' => __( 'Multi-Select', 'disciple-tools-prayer-requests' ),
+            //     'description' => __( "Multi Select Field", 'disciple-tools-prayer-requests' ),
+            //     'type' => 'multi_select',
+            //     'default' => [
+            //         'item_1' => [
+            //             'label' => __( 'Item 1', 'disciple-tools-prayer-requests' ),
+            //             'description' => __( 'Item 1.', 'disciple-tools-prayer-requests' ),
+            //         ],
+            //         'item_2' => [
+            //             'label' => __( 'Item 2', 'disciple-tools-prayer-requests' ),
+            //             'description' => __( 'Item 2.', 'disciple-tools-prayer-requests' ),
+            //         ],
+            //         'item_3' => [
+            //             'label' => __( 'Item 3', 'disciple-tools-prayer-requests' ),
+            //             'description' => __( 'Item 3.', 'disciple-tools-prayer-requests' ),
+            //         ],
+            //     ],
+            //     "tile" => "details",
+            //     "in_create_form" => true,
+            //     'icon' => get_template_directory_uri() . "/dt-assets/images/languages.svg?v=2",
+            // ];
 
-
-            /**
-             * @todo this section adds location support to this post type. remove if not needed.
-             * location elements
-             */
-            $fields['location_grid'] = [
-                'name'        => __( 'Locations', 'disciple-tools-prayer-requests' ),
-                'description' => __( 'The general location where this contact is located.', 'disciple-tools-prayer-requests' ),
-                'type'        => 'location',
-                'mapbox'    => false,
-                "in_create_form" => true,
-                "tile" => "details",
-                "icon" => get_template_directory_uri() . "/dt-assets/images/location.svg",
-            ];
-            $fields['location_grid_meta'] = [
-                'name'        => __( 'Locations', 'disciple-tools-prayer-requests' ), //system string does not need translation
-                'description' => __( 'The general location where this record is located.', 'disciple-tools-prayer-requests' ),
-                'type'        => 'location_meta',
-                "tile"      => "details",
-                'mapbox'    => false,
-                'hidden' => true,
-                "icon" => get_template_directory_uri() . "/dt-assets/images/location.svg?v=2",
-            ];
-            $fields["contact_address"] = [
-                "name" => __( 'Address', 'disciple-tools-prayer-requests' ),
-                "icon" => get_template_directory_uri() . "/dt-assets/images/house.svg",
-                "type" => "communication_channel",
-                "tile" => "details",
-                'mapbox'    => false,
-                "customizable" => false
-            ];
-            if ( DT_Mapbox_API::get_key() ){
-                $fields["contact_address"]["custom_display"] = true;
-                $fields["contact_address"]["mapbox"] = true;
-                unset( $fields["contact_address"]["tile"] );
-                $fields["location_grid"]["mapbox"] = true;
-                $fields["location_grid_meta"]["mapbox"] = true;
-                $fields["location_grid"]["hidden"] = true;
-                $fields["location_grid_meta"]["hidden"] = false;
-            }
-            // end locations
-
-            /**
-             * @todo this adds generational support to this post type. remove if not needed.
-             * generation and peer connection fields
-             */
-            $fields["parents"] = [
-                "name" => __( 'Parents', 'disciple-tools-prayer-requests' ),
-                'description' => '',
-                "type" => "connection",
-                "post_type" => $this->post_type,
-                "p2p_direction" => "from",
-                "p2p_key" => $this->post_type."_to_".$this->post_type,
-                'tile' => 'connections',
-                'icon' => get_template_directory_uri() . '/dt-assets/images/group-parent.svg',
-                'create-icon' => get_template_directory_uri() . '/dt-assets/images/add-group.svg',
-            ];
-            $fields["peers"] = [
-                "name" => __( 'Peers', 'disciple-tools-prayer-requests' ),
-                'description' => '',
-                "type" => "connection",
-                "post_type" => $this->post_type,
-                "p2p_direction" => "any",
-                "p2p_key" => $this->post_type."_to_peers",
-                'tile' => 'connections',
-                'icon' => get_template_directory_uri() . '/dt-assets/images/group-peer.svg',
-                'create-icon' => get_template_directory_uri() . '/dt-assets/images/add-group.svg',
-            ];
-            $fields["children"] = [
-                "name" => __( 'Children', 'disciple-tools-prayer-requests' ),
-                'description' => '',
-                "type" => "connection",
-                "post_type" => $this->post_type,
-                "p2p_direction" => "to",
-                "p2p_key" => $this->post_type."_to_".$this->post_type,
-                'tile' => 'connections',
-                'icon' => get_template_directory_uri() . '/dt-assets/images/group-child.svg',
-                'create-icon' => get_template_directory_uri() . '/dt-assets/images/add-group.svg',
-            ];
-            // end generations
 
             /**
              * @todo this adds people groups support to this post type. remove if not needed.
              * Connections to other post types
              */
-            $fields["peoplegroups"] = [
-                "name" => __( 'People Groups', 'disciple-tools-prayer-requests' ),
-                'description' => __( 'The people groups connected to this record.', 'disciple-tools-prayer-requests' ),
+            $fields["groups"] = [
+                "name" => __( 'Related Groups', 'disciple-tools-prayer-requests' ),
+                'description' => __( 'The groups connected to this prayer request.', 'disciple-tools-prayer-requests' ),
                 "type" => "connection",
                 "tile" => 'details',
                 "post_type" => "peoplegroups",
                 "p2p_direction" => "to",
-                "p2p_key" => $this->post_type."_to_peoplegroups",
-                'icon' => get_template_directory_uri() . "/dt-assets/images/people-group.svg",
+                "p2p_key" => $this->post_type."_to_groups",
+                'icon' => get_template_directory_uri() . "/dt-assets/images/group.svg",
             ];
 
             $fields['contacts'] = [
-                "name" => __( 'Contacts', 'disciple-tools-prayer-requests' ),
-                "description" => '',
+                "name" => __( 'Related Contacts', 'disciple-tools-prayer-requests' ),
+                "description" => __( 'The contacts connected to this prayer request.', 'disciple-tools-prayer-requests' ),
                 "type" => "connection",
                 "post_type" => "contacts",
                 "p2p_direction" => "to",
