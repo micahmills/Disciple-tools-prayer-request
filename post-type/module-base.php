@@ -12,12 +12,12 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
      * @todo update these variables with your post_type, module key, and names.
      * @var string
      */
-    public $post_type = "prayer_request_post_type";
+    public $post_type = "prayer_request";
     public $module = "starter_base";
     public $single_name = 'Starter';
     public $plural_name = 'Starters';
     public static function post_type(){
-        return 'prayer_request_post_type';
+        return 'prayer_request';
     }
 
     private static $_instance = null;

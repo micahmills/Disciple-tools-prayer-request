@@ -28,7 +28,7 @@ class Disciple_Tools_Prayer_Requests_Tile
      * @return mixed
      */
     public function dt_details_additional_tiles( $tiles, $post_type = "" ) {
-        if ( $post_type === "contacts" || $post_type === "prayer_request_post_type" ){
+        if ( $post_type === "contacts" || $post_type === "prayer_request" ){
             $tiles["disciple_tools_prayer_requests"] = [ "label" => __( "Prayer Requests", 'disciple-tools-prayer-requests' ) ];
         }
         return $tiles;
@@ -43,7 +43,7 @@ class Disciple_Tools_Prayer_Requests_Tile
         /**
          * @todo set the post type
          */
-        if ( $post_type === "contacts" || $post_type === "prayer_request_post_type" ){
+        if ( $post_type === "contacts" || $post_type === "prayer_request" ){
             /**
              * @todo Add the fields that you want to include in your tile.
              *
@@ -118,7 +118,7 @@ class Disciple_Tools_Prayer_Requests_Tile
         /**
          * @todo set the post type and the section key that you created in the dt_details_additional_tiles() function
          */
-        if ( ( $post_type === "contacts" || $post_type === "prayer_request_post_type" ) && $section === "disciple_tools_prayer_requests" ){
+        if ( ( $post_type === "contacts" || $post_type === "prayer_request" ) && $section === "disciple_tools_prayer_requests" ){
             /**
              * These are two sets of key data:
              * $this_post is the details for this specific post

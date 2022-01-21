@@ -61,7 +61,7 @@ class Disciple_Tools_Prayer_Requests_Workflows {
             case 'groups':
                 $this->build_default_workflows_groups( $workflows );
                 break;
-            case 'prayer_request_post_type':
+            case 'prayer_request':
                 $this->build_default_workflows_starter( $workflows );
                 break;
         }
@@ -76,7 +76,7 @@ class Disciple_Tools_Prayer_Requests_Workflows {
     }
 
     private function build_default_workflows_starter( &$workflows ) {
-        $dt_fields = DT_Posts::get_post_field_settings( 'prayer_request_post_type' );
+        $dt_fields = DT_Posts::get_post_field_settings( 'prayer_request' );
 
         $workflows[] = (object) [
             'id'         => 'starter_00001',

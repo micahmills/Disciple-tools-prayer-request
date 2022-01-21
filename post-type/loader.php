@@ -23,7 +23,7 @@ add_filter( 'dt_post_type_modules', function( $modules ){
         "enabled" => true,
         "locked" => true,
         "prerequisites" => [ "contacts_base" ],
-        "post_type" => "prayer_request_post_type",
+        "post_type" => "prayer_request",
         "description" => "Default starter functionality"
     ];
 

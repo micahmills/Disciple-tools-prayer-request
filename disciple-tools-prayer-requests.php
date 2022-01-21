@@ -21,7 +21,7 @@
 /**
  * Refactoring (renaming) this plugin as your own:
  * 1. @todo Rename the `disciple-tools-prayer-requests.php file.
- * 2. @todo Refactor all occurrences of the name Disciple_Tools_Prayer_Requests, disciple_tools_prayer_requests, disciple-tools-prayer-requests, prayer_request_post_type, and "Prayer Requests"
+ * 2. @todo Refactor all occurrences of the name Disciple_Tools_Prayer_Requests, disciple_tools_prayer_requests, disciple-tools-prayer-requests, prayer_request, and "Prayer Requests"
  * 3. @todo Update the README.md and LICENSE
  * 4. @todo Update the default.pot file if you intend to make your plugin multilingual. Use a tool like POEdit
  */
