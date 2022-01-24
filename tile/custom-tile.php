@@ -135,25 +135,55 @@ class Disciple_Tools_Prayer_Requests_Tile
             <!--
             @todo you can add HTML content to this section.
             -->
-            <script>
-            </script>
             <div class="cell small-12 medium-4">
                 <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple_tools' ), $post_type_label ?? $post_type ) ) ?></div>
-                <?php foreach ( $this_post['prayer_request'] as $prayer_request ) {
+                <?php foreach ( $this_post['prayer_request'] as $prayer_request ) :
                         $prayer_request_id = $prayer_request['ID'];
                         $prayer_request_post = DT_Posts::get_post( 'prayer_request', $prayer_request_id );
+                    ?>
+                    <a href="<?php echo esc_html( $prayer_request_post["permalink"] ) ?>" class="prayer_request_link">
 
-                        dt_write_log( $prayer_request_post );
-                }
-                ?>
-                <a href="<?php echo esc_html( $prayer_request_post["permalink"] ) ?>" class="prayer_request_link"><?php echo esc_html( $prayer_request_post["title"] ) ?></a>
+                    <img class="dt-icon" <?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( 'style=opacity:0.35' ); } ?> src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> <?php echo esc_html( $prayer_request_post["title"] ) ?><?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( ' - '. $prayer_request_post['status']['label'] ); } ?></a><br>
+                <?php endforeach; ?>
+
             </div>
 
             <div class="cell small-12 medium-4">
+                <div class="section-subheader">
+                    <img class="dt-icon" src="https://rsdt.local/wp-content/themes/disciple-tools-theme/dt-assets/images/name.svg">Name</span>
+                </div>
+                <input id="disciple_tools_prayer_requests_name" type="text" required="" class="" value="">
+                <div class="section-subheader">
+                    <img class="dt-icon" src="https://rsdt.local/wp-content/themes/disciple-tools-theme/dt-assets/images/edit.svg">Prayer Request Content
+                </div>
                 <textarea id="disciple_tools_prayer_requests_text" class="textarea"></textarea>
+                <button id="disciple_tools_prayer_requests_button" class="button">Create Prayer Request</button>
             </div>
 
+            <script>
+                fields = {
+                    "contacts": {
+                        "values": [
+                            {
+                                "value": "<?php echo esc_html( get_the_ID() ) ?>"
+                            }
+                        ]
+                    },
+                    "name": "test",
+                    "disciple_tools_prayer_requests_text": "test"
+                }
 
+                var addPrayerRequestButton = document.querySelector("#disciple_tools_prayer_requests_button");
+
+                addPrayerRequestButton.addEventListener('click', event => {
+                    console.log('test');
+                    fields.disciple_tools_prayer_requests_text = document.querySelector("#disciple_tools_prayer_requests_text").value
+                    fields.name = document.querySelector("#disciple_tools_prayer_requests_name").value
+console.log(fields);
+
+                    window.API.create_post('prayer_request', fields)
+                });
+            </script>
         <?php }
     }
 }
