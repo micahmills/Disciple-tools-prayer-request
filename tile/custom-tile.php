@@ -43,7 +43,7 @@ class Disciple_Tools_Prayer_Requests_Tile
         /**
          * @todo set the post type
          */
-        if ( $post_type === "contacts" || $post_type === "prayer_request" ){
+        if ( $post_type === "prayer_request" ){
             /**
              * @todo Add the fields that you want to include in your tile.
              *
@@ -119,7 +119,7 @@ class Disciple_Tools_Prayer_Requests_Tile
         /**
          * @todo set the post type and the section key that you created in the dt_details_additional_tiles() function
          */
-        if ( ( $post_type === "contacts" || $post_type === "prayer_request" ) && $section === "disciple_tools_prayer_requests" ){
+        if ( ( $post_type === "contacts" ) && $section === "disciple_tools_prayer_requests" ){
             /**
              * These are two sets of key data:
              * $this_post is the details for this specific post
@@ -129,17 +129,30 @@ class Disciple_Tools_Prayer_Requests_Tile
              */
             $this_post = DT_Posts::get_post( $post_type, get_the_ID() );
             $post_type_fields = DT_Posts::get_post_field_settings( $post_type );
+            $post_type_label = DT_Posts::get_post_settings( get_post_type() ?: "contacts" )['label_singular'];
             ?>
 
             <!--
             @todo you can add HTML content to this section.
             -->
+            <script>
+            </script>
+            <div class="cell small-12 medium-4">
+                <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple_tools' ), $post_type_label ?? $post_type ) ) ?></div>
+                <?php foreach ( $this_post['prayer_request'] as $prayer_request ) {
+                        $prayer_request_id = $prayer_request['ID'];
+                        $prayer_request_post = DT_Posts::get_post( 'prayer_request', $prayer_request_id );
+
+                        dt_write_log( $prayer_request_post );
+                }
+                ?>
+                <a href="<?php echo esc_html( $prayer_request_post["permalink"] ) ?>" class="prayer_request_link"><?php echo esc_html( $prayer_request_post["title"] ) ?></a>
+            </div>
 
             <div class="cell small-12 medium-4">
-                <!-- @todo remove this notes section-->
-                <strong>You can do a number of customizations here.</strong><br><br>
-                See post types and field keys and values: <a href="<?php echo esc_html( admin_url( "admin.php?page=dt_utilities&tab=fields" ) ); ?>" target="_blank">click here</a>
+                <textarea id="disciple_tools_prayer_requests_text" class="textarea"></textarea>
             </div>
+
 
         <?php }
     }
