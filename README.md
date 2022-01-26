@@ -1,41 +1,30 @@
-[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-prayer-requests.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-prayer-requests)
+[![Build Status](https://travis-ci.com/micahmills/disciple-tools-prayer-requests.svg?branch=master)](https://travis-ci.com/micahmills/disciple-tools-prayer-requests)
 
-## Dev notes, delete me:
-This is a starter plugin to jumpstart your work with Disciple.Tools.
-Click the "Use this template" button above.
-See instructions for refactoring and getting started in the [wiki](https://github.com/DiscipleTools/disciple-tools-prayer-requests/wiki)
-See instructions for creating releases and publishing your plugin: [wiki](https://github.com/DiscipleTools/disciple-tools-prayer-requests/wiki)
-In order to display the banner correctly on the Disciple.Tools Community Plugins Site, don't change the 'Plugin Banner' text on line 12; only the URL.
+
 
 ## readme format:
 
-![Plugin Banner](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-prayer-requests/b30402d97895e3f911efcb47fb8f29ccd1eb92e5/documentation/banner.png)
+![Plugin Banner](https://github.com/micahmills/disciple-tools-prayer-request/raw/master/banner.png)
 
 # Disciple.Tools - Prayer Requests
 
-Description Description Description Description Description Description Description
-Description Description Description Description Description Description Description
+Create Prayer Requests related to Contacts and Groups that are easily shared with your team.
 
 ## Purpose
 
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
-
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
-Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose
+This plugin will create a tile on Contact and Group records where you can create a prayer requests related to that contact or group. Your team will be able to see all the Prayer Requests from the Prayer Requests list, and you can update the Prayer Request as needed.
 
 ## Usage
 
 #### Will Do
 
-- Item
-- Item
-- Item
+- Create a Prayer Request Post Type
+- Add a tile to Contact and Group pages to easily create prayer requests.
 
 #### Will Not Do
 
-- Item
-- Item
+- Will not currently work on other custom post types like Trainings from the Training plugin.
+- Currently does not utilize the notification system to update prayer requests, but there are plans to add this in the future.
 
 ## Requirements
 
@@ -49,13 +38,8 @@ Purpose purpose purpose purpose purpose purpose purpose purpose purpose purpose 
 ## Contribution
 
 Contributions welcome. You can report issues and bugs in the
-[Issues](https://github.com/DiscipleTools/disciple-tools-prayer-requests/issues) section of the repo. You can present ideas
-in the [Discussions](https://github.com/DiscipleTools/disciple-tools-prayer-requests/discussions) section of the repo. And
-code contributions are welcome using the [Pull Request](https://github.com/DiscipleTools/disciple-tools-prayer-requests/pulls)
+[Issues](https://github.com/micahmills/disciple-tools-prayer-requests/issues) section of the repo. You can present ideas
+in the [Discussions](https://github.com/micahmills/disciple-tools-prayer-requests/discussions) section of the repo. And
+code contributions are welcome using the [Pull Request](https://github.com/micahmills/disciple-tools-prayer-requests/pulls)
 system for git. For a more details on contribution see the
-[contribution guidelines](https://github.com/DiscipleTools/disciple-tools-prayer-requests/blob/master/CONTRIBUTING.md).
-
-
-## Screenshots
-
-![screenshot](documentation/community/starter-banners/banner-blue-green.png)
+[contribution guidelines](https://github.com/micahmills/disciple-tools-prayer-requests/blob/master/CONTRIBUTING.md).
