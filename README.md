@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.com/micahmills/disciple-tools-prayer-requests.svg?branch=master)](https://travis-ci.com/micahmills/disciple-tools-prayer-requests)
-
-
-
 ## readme format:
 
 ![Plugin Banner](https://github.com/micahmills/disciple-tools-prayer-request/raw/master/banner.png)
