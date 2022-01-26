@@ -164,7 +164,7 @@ class Disciple_Tools_Prayer_Requests_Tile
 
             <script>
                 fields = {
-                    "contacts": {
+                    "<?php echo esc_html( $post_type ); ?>": {
                         "values": [
                             {
                                 "value": "<?php echo esc_html( get_the_ID() ) ?>"
