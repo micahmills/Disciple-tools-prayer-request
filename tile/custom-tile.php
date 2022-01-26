@@ -136,14 +136,17 @@ class Disciple_Tools_Prayer_Requests_Tile
             <?php if ( $post_type !== 'prayer_request' ) { ?>
                 <div class="cell small-12 medium-4">
                 <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple_tools' ), $post_type_label ?? $post_type ) ) ?></div>
-                <?php foreach ( $this_post['prayer_request'] as $prayer_request ) :
-                        $prayer_request_id = $prayer_request['ID'];
-                        $prayer_request_post = DT_Posts::get_post( 'prayer_request', $prayer_request_id );
-                    ?>
-                    <a href="<?php echo esc_html( $prayer_request_post["permalink"] ) ?>" class="prayer_request_link">
+                <?php if ( array_key_exists( 'prayer_request', $this_post ) ) :
+                    foreach ( $this_post['prayer_request'] as $prayer_request ) :
+                            $prayer_request_id = $prayer_request['ID'];
+                            $prayer_request_post = DT_Posts::get_post( 'prayer_request', $prayer_request_id );
+                        ?>
+                        <a href="<?php echo esc_html( $prayer_request_post["permalink"] ) ?>" class="prayer_request_link">
 
-                    <img class="dt-icon" <?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( 'style=opacity:0.35' ); } ?> src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> <?php echo esc_html( $prayer_request_post["title"] ) ?><?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( ' - '. $prayer_request_post['status']['label'] ); } ?></a><br>
-                <?php endforeach; ?>
+                        <img class="dt-icon" <?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( 'style=opacity:0.35' ); } ?> src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> <?php echo esc_html( $prayer_request_post["title"] ) ?><?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( ' - '. $prayer_request_post['status']['label'] ); } ?></a><br>
+                    <?php endforeach;
+                endif;
+                ?>
 
             </div>
 
