@@ -170,16 +170,15 @@ class Disciple_Tools_Prayer_Requests_Tile
                         ]
                     },
                     "name": "test",
-                    "disciple_tools_prayer_requests_text": "test"
+                    "disciple_tools_prayer_requests_text": "test",
+                    "assigned_to": <?php echo esc_html( get_current_user_id() ); ?>
                 }
 
                 var addPrayerRequestButton = document.querySelector("#disciple_tools_prayer_requests_button");
 
                 addPrayerRequestButton.addEventListener('click', event => {
-                    console.log('test');
                     fields.disciple_tools_prayer_requests_text = document.querySelector("#disciple_tools_prayer_requests_text").value
                     fields.name = document.querySelector("#disciple_tools_prayer_requests_name").value
-console.log(fields);
 
                     window.API.create_post('prayer_request', fields)
                 });

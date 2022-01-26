@@ -86,6 +86,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                 $expected_roles[$role]["permissions"]['access_' . $this->post_type ] = true;
                 $expected_roles[$role]["permissions"]['create_' . $this->post_type] = true;
                 $expected_roles[$role]["permissions"]['update_' . $this->post_type] = true;
+                $expected_roles[$role]["permissions"]['view_any_'.$this->post_type ] = true;
             }
         }
 
