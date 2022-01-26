@@ -188,10 +188,13 @@ class Disciple_Tools_Prayer_Requests_Tile
                 <div class="cell small-12 medium-4">
                     <span class="prayer_request_content_container">
                     <p class="prayer_request_content"><?php echo esc_html( $this_post['disciple_tools_prayer_requests_text'] ); ?></p>
+                    <?php
+                    if ( current_user_can( "assign_any_contacts" ) || isset( $this_post["assigned_to"]["id"] ) && $this_post["assigned_to"]["id"] == get_current_user_id() ) : ?>
                     <a class="edit-prayer-request" style="margin-right:5px">
                         <img class="dt-blue-icon" src="https://rsdt.local/wp-content/themes/disciple-tools-theme/dt-assets/images/edit.svg">
                         edit
                     </a>
+                    <?php endif ?>
                     </span>
                     </span>
                     <textarea id="disciple_tools_prayer_requests_text" class="textarea prayer_request_content_editable" style="display:none"><?php echo esc_html( $this_post['disciple_tools_prayer_requests_text'] ); ?></textarea>
