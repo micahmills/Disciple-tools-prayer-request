@@ -133,7 +133,7 @@ class Disciple_Tools_Prayer_Requests_Tile
             <!--
             @todo you can add HTML content to this section.
             -->
-            <?php if ( $post_type !== 'prayer_request' ) { ?>
+            <?php if ( $post_type === "contacts" || $post_type === "groups" ) { ?>
                 <div class="cell small-12 medium-4">
                 <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple_tools' ), $post_type_label ?? $post_type ) ) ?></div>
                 <?php if ( array_key_exists( 'prayer_request', $this_post ) ) :
