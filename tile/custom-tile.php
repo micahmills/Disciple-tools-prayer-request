@@ -28,9 +28,7 @@ class Disciple_Tools_Prayer_Requests_Tile
      * @return mixed
      */
     public function dt_details_additional_tiles( $tiles, $post_type = "" ) {
-        if ( $post_type === "contacts" || $post_type === "prayer_request" ){
-            $tiles["disciple_tools_prayer_requests"] = [ "label" => __( "Prayer Requests", 'disciple-tools-prayer-requests' ) ];
-        }
+        $tiles["disciple_tools_prayer_requests"] = [ "label" => __( "Prayer Requests", 'disciple-tools-prayer-requests' ) ];
         return $tiles;
     }
 
@@ -119,7 +117,7 @@ class Disciple_Tools_Prayer_Requests_Tile
         /**
          * @todo set the post type and the section key that you created in the dt_details_additional_tiles() function
          */
-        if ( ( $post_type === "contacts" ) && $section === "disciple_tools_prayer_requests" ){
+        if ( $section === "disciple_tools_prayer_requests" ){
             /**
              * These are two sets of key data:
              * $this_post is the details for this specific post
@@ -135,7 +133,8 @@ class Disciple_Tools_Prayer_Requests_Tile
             <!--
             @todo you can add HTML content to this section.
             -->
-            <div class="cell small-12 medium-4">
+            <?php if ( $post_type !== 'prayer_request' ) { ?>
+                <div class="cell small-12 medium-4">
                 <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple_tools' ), $post_type_label ?? $post_type ) ) ?></div>
                 <?php foreach ( $this_post['prayer_request'] as $prayer_request ) :
                         $prayer_request_id = $prayer_request['ID'];
@@ -169,8 +168,8 @@ class Disciple_Tools_Prayer_Requests_Tile
                             }
                         ]
                     },
-                    "name": "test",
-                    "disciple_tools_prayer_requests_text": "test",
+                    "name": "",
+                    "disciple_tools_prayer_requests_text": "",
                     "assigned_to": <?php echo esc_html( get_current_user_id() ); ?>
                 }
 
@@ -180,10 +179,122 @@ class Disciple_Tools_Prayer_Requests_Tile
                     fields.disciple_tools_prayer_requests_text = document.querySelector("#disciple_tools_prayer_requests_text").value
                     fields.name = document.querySelector("#disciple_tools_prayer_requests_name").value
 
-                    window.API.create_post('prayer_request', fields)
+                    window.API.create_post('prayer_request', fields);
+                    document.querySelector("#disciple_tools_prayer_requests_text").value = "";
+                    document.querySelector("#disciple_tools_prayer_requests_name").value = "";
                 });
             </script>
-        <?php }
+            <?php } else if ( $post_type === "prayer_request" ) { ?>
+                <div class="cell small-12 medium-4">
+                    <span class="prayer_request_content_container">
+                    <p class="prayer_request_content"><?php echo esc_html( $this_post['disciple_tools_prayer_requests_text'] ); ?></p>
+                    <a class="edit-prayer-request" style="margin-right:5px">
+                        <img class="dt-blue-icon" src="https://rsdt.local/wp-content/themes/disciple-tools-theme/dt-assets/images/edit.svg">
+                        edit
+                    </a>
+                    </span>
+                    </span>
+                    <textarea id="disciple_tools_prayer_requests_text" class="textarea prayer_request_content_editable" style="display:none"><?php echo esc_html( $this_post['disciple_tools_prayer_requests_text'] ); ?></textarea>
+                    <?php if ( get_option( 'dt_googletranslate_api_key' ) ) : ?>
+                        <div class="translation_container">
+                            <div class="prayer-request-translation-bubble" dir=auto></div>
+                            <a class="prayer-request-translate-button showTranslation"><?php esc_html_e( "Translate with Google Translate", "disciple_tools" ) ?></a>
+                            <a class="prayer-request-translate-button hideTranslation hide"><?php esc_html_e( "Hide Translation", "disciple_tools" ) ?></a>
+                        </div>
+                    <?php endif ?>
+                    </div>
+                    <script>
+                        jQuery(document).on("click", '.prayer-request-translate-button.showTranslation', function() {
+                        let combinedArray = [];
+                        jQuery('.prayer_request_content').each(function(index, comment) {
+                        let sourceText = jQuery(comment).text();
+                        sourceText = sourceText.replace(/\s+/g, ' ').trim();
+                        combinedArray[index] = sourceText;
+                        })
+
+                        let translation_bubble = jQuery(this).siblings('.prayer-request-translation-bubble');
+                        let translation_hide = jQuery(this).siblings('.prayer-request-translate-button.hideTranslation');
+
+                        let url = `https://translation.googleapis.com/language/translate/v2?key=${window.lodash.escape(commentsSettings.google_translate_key)}`
+                        let targetLang;
+                        let langcode = document.querySelector('html').getAttribute('lang') ? document.querySelector('html').getAttribute('lang').replace('_', '-') : "en";
+
+                        if (langcode !== "zh-TW") {
+                        targetLang = langcode.substr(0,2);
+                        } else {
+                        targetLang = langcode;
+                        }
+
+                        function google_translate_fetch(postData, translate_button, arrayStartPos = 0) {
+                        fetch(url, {
+                                method: 'POST',
+                                body: JSON.stringify(postData),
+                            })
+                            .then(response => response.json())
+                            .then((result) => {
+
+                            jQuery.each(result.data.translations, function( index, translation ) {
+                                jQuery(translation_bubble[index + arrayStartPos]).append(translation.translatedText);
+                            });
+                            translation_hide.removeClass('hide');
+                            jQuery(translate_button).addClass('hide');
+                            })
+                        }
+
+                        if( combinedArray.length <= 128) {
+                        let postData = {
+                            "q": combinedArray,
+                            "target": targetLang
+                        }
+                        google_translate_fetch(postData, this);
+                        } else {
+                        var i,j,temparray,chunk = 128;
+                        for (i=0,j=combinedArray.length; i<j; i+=chunk) {
+                            temparray = combinedArray.slice(i,i+chunk);
+
+                            let postData = {
+                                "q": temparray,
+                                "target": targetLang
+                            }
+                            google_translate_fetch(postData, this, i);
+                        }
+                        }
+
+                    })
+                    jQuery(document).on("click", '.prayer-request-translate-button.hideTranslation', function() {
+                        prayer_request_hide_translation(this)
+                    })
+
+                    function prayer_request_hide_translation(element) {
+                        let translation_bubble = jQuery('.prayer-request-translation-bubble');
+                        let translate_button = jQuery('.prayer-request-translate-button.showTranslation')
+
+                        translation_bubble.empty();
+                        jQuery('.prayer-request-translate-button.hideTranslation').addClass('hide');
+                        translate_button.removeClass('hide');
+                    }
+
+                    function toggle_prayer_request_edit() {
+                        jQuery('.prayer_request_content_container').toggle();
+                        jQuery('.prayer_request_content_editable').toggle();
+                        jQuery('.translation_container').toggle();
+                        prayer_request_hide_translation();
+                    }
+
+                    jQuery(document).on("click", '.edit-prayer-request', function () {
+                        toggle_prayer_request_edit();
+                    })
+
+                    $('#disciple_tools_prayer_requests_text').change(function(){
+                        API.update_post(detailsSettings.post_type, detailsSettings.post_id, {'disciple_tools_prayer_requests_text': jQuery('#disciple_tools_prayer_requests_text').val()}).then((newPost)=>{
+                            //$(`#${id}-spinner`).removeClass('active')
+                            $('.prayer_request_content').text(newPost.disciple_tools_prayer_requests_text);
+                            toggle_prayer_request_edit();
+                        })
+                    })
+                    </script>
+            <?php }
+        }
     }
 }
 Disciple_Tools_Prayer_Requests_Tile::instance();
