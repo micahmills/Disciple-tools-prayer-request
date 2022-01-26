@@ -40,8 +40,8 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
 
         //setup tiles and fields
         add_filter( 'dt_custom_fields_settings', [ $this, 'dt_custom_fields_settings' ], 10, 2 );
-        add_filter( 'dt_details_additional_tiles', [ $this, 'dt_details_additional_tiles' ], 10, 2 );
-        add_action( 'dt_details_additional_section', [ $this, 'dt_details_additional_section' ], 20, 2 );
+        // add_filter( 'dt_details_additional_tiles', [ $this, 'dt_details_additional_tiles' ], 10, 2 );
+        // add_action( 'dt_details_additional_section', [ $this, 'dt_details_additional_section' ], 20, 2 );
         add_action( 'wp_enqueue_scripts', [ $this, 'scripts' ], 99 );
 
         // hooks
@@ -137,17 +137,17 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                 "default_color" => "#366184",
                 "show_in_table" => 10,
             ];
-            $fields["subassigned"] = [
-                "name" => __( "Visible to", 'disciple_tools' ),
-                "description" => __( "Contact or User that can view this prayer request.", 'disciple_tools' ),
-                "type" => "connection",
-                "post_type" => "prayer_request",
-                "p2p_direction" => "to",
-                "p2p_key" => "prayer_request_to_subassigned",
-                "tile" => "status",
-                "custom_display" => false,
-                'icon' => get_template_directory_uri() . "/dt-assets/images/subassigned.svg?v=2",
-            ];
+            // $fields["subassigned"] = [
+            //     "name" => __( "Visible to", 'disciple_tools' ),
+            //     "description" => __( "Contact or User that can view this prayer request.", 'disciple_tools' ),
+            //     "type" => "connection",
+            //     "post_type" => "prayer_request",
+            //     "p2p_direction" => "to",
+            //     "p2p_key" => "prayer_request_to_subassigned",
+            //     "tile" => "status",
+            //     "custom_display" => false,
+            //     'icon' => get_template_directory_uri() . "/dt-assets/images/subassigned.svg?v=2",
+            // ];
             $fields['assigned_to'] = [
                 'name'        => __( 'Assigned To', 'disciple-tools-prayer-requests' ),
                 'description' => __( "This person is responsible to follow up with and update this prayer request.", 'disciple-tools-prayer-requests' ),
@@ -206,16 +206,16 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
              * @todo this adds people groups support to this post type. remove if not needed.
              * Connections to other post types
              */
-            $fields["groups"] = [
-                "name" => __( 'Related Groups', 'disciple-tools-prayer-requests' ),
-                'description' => __( 'The groups connected to this prayer request.', 'disciple-tools-prayer-requests' ),
-                "type" => "connection",
-                "tile" => 'details',
-                "post_type" => "peoplegroups",
-                "p2p_direction" => "to",
-                "p2p_key" => $this->post_type."_to_groups",
-                'icon' => get_template_directory_uri() . "/dt-assets/images/group.svg",
-            ];
+            // $fields["groups"] = [
+            //     "name" => __( 'Related People Groups', 'disciple-tools-prayer-requests' ),
+            //     'description' => __( 'The groups connected to this prayer request.', 'disciple-tools-prayer-requests' ),
+            //     "type" => "connection",
+            //     "tile" => 'details',
+            //     "post_type" => "peoplegroups",
+            //     "p2p_direction" => "to",
+            //     "p2p_key" => $this->post_type."_to_groups",
+            //     'icon' => get_template_directory_uri() . "/dt-assets/images/group.svg",
+            // ];
 
             $fields['contacts'] = [
                 "name" => __( 'Related Contacts', 'disciple-tools-prayer-requests' ),
@@ -229,25 +229,37 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                 'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-contact.svg",
                 "show_in_table" => 35
             ];
+            $fields['groups'] = [
+                "name" => __( 'Related Groups', 'disciple-tools-prayer-requests' ),
+                "description" => __( 'The groups connected to this prayer request.', 'disciple-tools-prayer-requests' ),
+                "type" => "connection",
+                "post_type" => "groups",
+                "p2p_direction" => "to",
+                "p2p_key" => $this->post_type."_to_groups",
+                "tile" => "status",
+                'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
+                'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-contact.svg",
+                "show_in_table" => 35
+            ];
         }
 
         /**
          * @todo this adds connection to contacts. remove if not needed.
          */
-        if ( $post_type === "contacts" ){
-            $fields[$this->post_type] = [
-                "name" => $this->plural_name,
-                "description" => '',
-                "type" => "connection",
-                "post_type" => $this->post_type,
-                "p2p_direction" => "from",
-                "p2p_key" => $this->post_type."_to_contacts",
-                "tile" => "other",
-                'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
-                'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-group.svg",
-                "show_in_table" => 35
-            ];
-        }
+        // if ( $post_type === "contacts" ){
+        //     $fields[$this->post_type] = [
+        //         "name" => $this->plural_name,
+        //         "description" => '',
+        //         "type" => "connection",
+        //         "post_type" => $this->post_type,
+        //         "p2p_direction" => "from",
+        //         "p2p_key" => $this->post_type."_to_contacts",
+        //         "tile" => "other",
+        //         'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
+        //         'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-group.svg",
+        //         "show_in_table" => 35
+        //     ];
+        // }
 
         /**
          * @todo this adds connection to groups. remove if not needed.
@@ -260,7 +272,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                 "post_type" => $this->post_type,
                 "p2p_direction" => "from",
                 "p2p_key" => $this->post_type."_to_groups",
-                "tile" => "other",
+                "tile" => "status",
                 'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
                 'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-group.svg",
                 "show_in_table" => 35
@@ -274,10 +286,10 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
      * @link https://github.com/DiscipleTools/Documentation/blob/master/Theme-Core/field-and-tiles.md
      */
     public function dt_details_additional_tiles( $tiles, $post_type = "" ){
-        if ( $post_type === $this->post_type ){
-            $tiles["connections"] = [ "label" => __( "Connections", 'disciple-tools-prayer-requests' ) ];
-            $tiles["other"] = [ "label" => __( "Other", 'disciple-tools-prayer-requests' ) ];
-        }
+        // if ( $post_type === $this->post_type ){
+        //     $tiles["connections"] = [ "label" => __( "Connections", 'disciple-tools-prayer-requests' ) ];
+        //     $tiles["other"] = [ "label" => __( "Other", 'disciple-tools-prayer-requests' ) ];
+        // }
         return $tiles;
     }
 
@@ -288,18 +300,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
      */
     public function dt_details_additional_section( $section, $post_type ){
 
-        if ( $post_type === $this->post_type && $section === "other" ) {
-            $fields = DT_Posts::get_post_field_settings( $post_type );
-            $post = DT_Posts::get_post( $this->post_type, get_the_ID() );
-            ?>
-            <div class="section-subheader">
-                <?php esc_html_e( "Custom Section Contact", 'disciple-tools-prayer-requests' ) ?>
-            </div>
-            <div>
-                <p>Add information or custom fields here</p>
-            </div>
 
-        <?php }
     }
 
     /**

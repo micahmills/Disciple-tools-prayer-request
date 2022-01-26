@@ -101,16 +101,16 @@ class Disciple_Tools_Prayer_Requests {
          * To remove: delete the lines below and remove the folder named /tile
          */
         require_once( 'tile/custom-tile.php' ); // add custom tile
-        if ( 'settings' === dt_get_url_path() && ! $is_rest ) {
-            require_once( 'tile/settings-tile.php' ); // add custom settings page tile
-        }
+        // if ( 'settings' === dt_get_url_path() && ! $is_rest ) {
+        //     require_once( 'tile/settings-tile.php' ); // add custom settings page tile
+        // }
 
         /**
          * @todo Decide if you want to create a magic link
          * To remove: delete the line below and remove the folder named /magic-link
          */
-        require_once( 'magic-link/magic-link-post-type.php' );
-        require_once( 'magic-link/magic-link-user-app.php' );
+        // require_once( 'magic-link/magic-link-post-type.php' );
+        // require_once( 'magic-link/magic-link-user-app.php' );
 
         /**
          * @todo Decide if you want to add a custom admin page in the admin area
