@@ -23,7 +23,7 @@ jobs:
       - name: Build project
         run: |
           mkdir disciple-tools-prayer-requests
-          cp -r disciple-tools-prayer-requests.php admin languages magic-link post-type rest-api tile spinner.svg version-control.json LICENSE SECURITY.md disciple-tools-prayer-requests/
+          cp -r disciple-tools-prayer-requests.php admin languages magic-link post-type rest-api tile workflows spinner.svg version-control.json LICENSE SECURITY.md disciple-tools-prayer-requests/
           zip -r disciple-tools-prayer-requests.zip disciple-tools-prayer-requests
       - name: Create Release
         id: create_release
