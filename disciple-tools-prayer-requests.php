@@ -325,7 +325,7 @@ add_action( 'plugins_loaded', function (){
         }
         if ( class_exists( 'Puc_v4_Factory' ) ){
             Puc_v4_Factory::buildUpdateChecker(
-                'https://raw.githubusercontent.com/micahmills/disciple-tools-prayer-requests/master/version-control.json',
+                'https://raw.githubusercontent.com/micahmills/disciple-tools-prayer-request/master/version-control.json',
                 __FILE__,
                 'disciple-tools-prayer-requests'
             );
