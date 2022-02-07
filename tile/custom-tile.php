@@ -152,11 +152,11 @@ class Disciple_Tools_Prayer_Requests_Tile
 
             <div class="cell small-12 medium-4">
                 <div class="section-subheader">
-                    <img class="dt-icon" src="https://rsdt.local/wp-content/themes/disciple-tools-theme/dt-assets/images/name.svg">Name</span>
+                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/name.svg' ) ?>">Name</span>
                 </div>
                 <input id="disciple_tools_prayer_requests_name" type="text" required="" class="" value="">
                 <div class="section-subheader">
-                    <img class="dt-icon" src="https://rsdt.local/wp-content/themes/disciple-tools-theme/dt-assets/images/edit.svg">Prayer Request Content
+                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/edit.svg' ) ?>">Prayer Request Content
                 </div>
                 <textarea id="disciple_tools_prayer_requests_text" class="textarea"></textarea>
                 <button id="disciple_tools_prayer_requests_button" class="button">Create Prayer Request</button>
@@ -194,7 +194,7 @@ class Disciple_Tools_Prayer_Requests_Tile
                     <?php
                     if ( current_user_can( "assign_any_contacts" ) || isset( $this_post["assigned_to"]["id"] ) && $this_post["assigned_to"]["id"] == get_current_user_id() ) : ?>
                     <a class="edit-prayer-request" style="margin-right:5px">
-                        <img class="dt-blue-icon" src="https://rsdt.local/wp-content/themes/disciple-tools-theme/dt-assets/images/edit.svg">
+                        <img class="dt-blue-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/edit.svg' ) ?>">
                         edit
                     </a>
                     <?php endif ?>
