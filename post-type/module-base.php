@@ -264,20 +264,16 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
         /**
          * @todo this adds connection to groups. remove if not needed.
          */
-        if ( $post_type === "groups" ){
-            $fields[$this->post_type] = [
-                "name" => $this->plural_name,
-                "description" => '',
-                "type" => "connection",
-                "post_type" => $this->post_type,
-                "p2p_direction" => "from",
-                "p2p_key" => $this->post_type."_to_groups",
-                "tile" => "status",
-                'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
-                'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-group.svg",
-                "show_in_table" => 35
-            ];
-        }
+        $fields[$this->post_type] = [
+            "name" => $this->plural_name,
+            "description" => '',
+            "type" => "connection",
+            "post_type" => $this->post_type,
+            "p2p_direction" => "from",
+            "p2p_key" => $this->post_type."_to_".$post_type,
+            "tile" => "status",
+            "show_in_table" => 35
+        ];
         return $fields;
     }
 
