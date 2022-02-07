@@ -134,7 +134,7 @@ class Disciple_Tools_Prayer_Requests_Tile
             @todo you can add HTML content to this section.
             -->
             <?php if ( $post_type === "contacts" || $post_type === "groups" ) { ?>
-                <div class="cell small-12 medium-4">
+                <div id="connected_Prayer_Requests" class="cell small-12 medium-4">
                 <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple_tools' ), $post_type_label ?? $post_type ) ) ?></div>
                 <?php if ( array_key_exists( 'prayer_request', $this_post ) ) :
                     foreach ( $this_post['prayer_request'] as $prayer_request ) :
@@ -182,9 +182,13 @@ class Disciple_Tools_Prayer_Requests_Tile
                     fields.disciple_tools_prayer_requests_text = document.querySelector("#disciple_tools_prayer_requests_text").value
                     fields.name = document.querySelector("#disciple_tools_prayer_requests_name").value
 
-                    window.API.create_post('prayer_request', fields);
-                    document.querySelector("#disciple_tools_prayer_requests_text").value = "";
-                    document.querySelector("#disciple_tools_prayer_requests_name").value = "";
+                    window.API.create_post('prayer_request', fields).then((newRecord)=>{
+                        let template = `<a href="${newRecord.permalink}" class="prayer_request_link"><img class="dt-icon" ${ newRecord.status.key === 'answered' ? `style=opacity:0.35` : '' } src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> ${ newRecord.name }${ newRecord.status.key === 'answered' ? ` - ${ newRecord.status.label }` : '' }</a><br>`;
+
+                        document.querySelector('#connected_Prayer_Requests').insertAdjacentHTML('beforeend', template);
+                        document.querySelector("#disciple_tools_prayer_requests_text").value = "";
+                        document.querySelector("#disciple_tools_prayer_requests_name").value = "";
+                    });
                 });
             </script>
             <?php } else if ( $post_type === "prayer_request" ) { ?>
