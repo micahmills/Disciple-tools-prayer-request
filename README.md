@@ -1,6 +1,5 @@
-## readme format:
 
-![Plugin Banner](https://github.com/micahmills/disciple-tools-prayer-request/raw/master/banner.png)
+![Plugin Banner](https://raw.githubusercontent.com/micahmills/disciple-tools-prayer-request/master/banner.png)
 
 # Disciple.Tools - Prayer Requests
 
