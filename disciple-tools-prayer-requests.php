@@ -5,7 +5,7 @@
  * Description: Disciple.Tools - Prayer Requests easily share prayer requests with your team
  * Text Domain: disciple-tools-prayer-requests
  * Domain Path: /languages
- * Version:  0.1.10
+ * Version:  0.1.11
  * Author URI: https://github.com/micahmills
  * GitHub Plugin URI: https://github.com/micahmills/disciple-tools-prayer-request
  * Requires at least: 4.7.0
