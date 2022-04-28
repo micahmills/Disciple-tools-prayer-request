@@ -41,7 +41,7 @@ class Disciple_Tools_Prayer_Requests_Tile
         /**
          * @todo set the post type
          */
-        if ( $post_type === "prayer_request" ){
+        // if ( $post_type === "prayer_request" ){
             /**
              * @todo Add the fields that you want to include in your tile.
              *
@@ -56,15 +56,15 @@ class Disciple_Tools_Prayer_Requests_Tile
             /**
              * This is an example of a text field
              */
-            $fields['disciple_tools_prayer_requests_text'] = [
-                'name'        => __( 'Prayer Request Content', 'disciple-tools-prayer-requests' ),
-                'description' => _x( 'Prayer Request Content', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
-                'type'        => 'textarea',
-                'default'     => '',
-                'tile' => 'disciple_tools_prayer_requests',
-                "in_create_form" => true,
-                'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
-            ];
+            // $fields['disciple_tools_prayer_requests_text'] = [
+            //     'name'        => __( 'Prayer Request Content', 'disciple-tools-prayer-requests' ),
+            //     'description' => _x( 'Prayer Request Content', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
+            //     'type'        => 'textarea',
+            //     'default'     => '',
+            //     'tile' => 'disciple_tools_prayer_requests',
+            //     "in_create_form" => true,
+            //     'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
+            // ];
             /**
              * This is an example of a multiselect field
              */
@@ -109,7 +109,7 @@ class Disciple_Tools_Prayer_Requests_Tile
             //     "default_color" => "#366184",
             //     "select_cannot_be_empty" => true
             // ];
-        }
+        // }
         return $fields;
     }
 
@@ -135,7 +135,7 @@ class Disciple_Tools_Prayer_Requests_Tile
             -->
             <?php if ( $post_type === "contacts" || $post_type === "groups" ) { ?>
                 <div id="connected_Prayer_Requests" class="cell small-12 medium-4">
-                <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple_tools' ), $post_type_label ?? $post_type ) ) ?></div>
+                <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple-tools-prayer-requests' ), $post_type_label ?? $post_type ) ) ?></div>
                 <?php if ( array_key_exists( 'prayer_request', $this_post ) ) :
                     foreach ( $this_post['prayer_request'] as $prayer_request ) :
                             $prayer_request_id = $prayer_request['ID'];
@@ -152,14 +152,14 @@ class Disciple_Tools_Prayer_Requests_Tile
 
             <div class="cell small-12 medium-4">
                 <div class="section-subheader">
-                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/name.svg' ) ?>">Name</span>
+                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/name.svg' ) ?>"><?php _e( 'Name', 'disciple-tools-prayer-requests' ) ?></span>
                 </div>
                 <input id="disciple_tools_prayer_requests_name" type="text" required="" class="" value="">
                 <div class="section-subheader">
-                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/edit.svg' ) ?>">Prayer Request Content
+                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/edit.svg' ) ?>"><?php _e( 'Prayer Request Content', 'disciple-tools-prayer-requests' ) ?>
                 </div>
                 <textarea id="disciple_tools_prayer_requests_text" class="textarea"></textarea>
-                <button id="disciple_tools_prayer_requests_button" class="button">Create Prayer Request</button>
+                <button id="disciple_tools_prayer_requests_button" class="button"><?php _e( 'Create Prayer Request', 'disciple-tools-prayer-requests' ) ?></button>
             </div>
 
             <script>

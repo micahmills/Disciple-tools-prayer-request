@@ -1,34 +1,41 @@
-# Copyright (C) 2022 
-# This file is distributed under the same license as the Disciple.Tools - Prayer Requests plugin.
 msgid ""
 msgstr ""
 "Project-Id-Version: Disciple.Tools - Prayer Requests 0.1.10\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disciple-tools-prayer-request\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disciple-tools-"
+"prayer-request\n"
+"POT-Creation-Date: 2022-04-28T08:08:59+00:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-04-28T08:08:59+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: disciple-tools-prayer-requests\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: test\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
 
 #. Plugin Name of the plugin
 msgid "Disciple.Tools - Prayer Requests"
-msgstr ""
+msgstr "‫Disciple.Tools - درخواست دعا"
 
 #. Plugin URI of the plugin
 msgid "https://github.com/micahmills/disciple-tools-prayer-request"
-msgstr ""
+msgstr "‫https://github.com/micahmills/disciple-tools-prayer-request"
 
 #. Description of the plugin
-msgid "Disciple.Tools - Prayer Requests easily share prayer requests with your team"
+msgid ""
+"Disciple.Tools - Prayer Requests easily share prayer requests with your team"
 msgstr ""
+"‫Disciple.Tools - درخواست دعا. به راحتی درخواست های دعا را با تیم خود به "
+"اشتراک بگذارید"
 
 #. Author URI of the plugin
 msgid "https://github.com/micahmills"
-msgstr ""
+msgstr "‫https://github.com/micahmills"
 
 #: magic-link/magic-link-post-type.php:108
 msgid "Magic Url"
@@ -39,99 +46,96 @@ msgstr ""
 msgid "Add Magic"
 msgstr ""
 
-#: post-type/loader.php:22
-#: post-type/loader.php:23
-#: post-type/loader.php:28
+#: post-type/loader.php:22 post-type/loader.php:23 post-type/loader.php:28
 #: post-type/module-base.php:37
 msgid "Prayer Request"
-msgstr ""
+msgstr "درخواست دعا"
 
 #: post-type/module-base.php:38
 #: tile/custom-tile.php:31
 msgid "Prayer Requests"
-msgstr ""
+msgstr "درخواست ها دعا"
 
 #: post-type/module-base.php:80
 msgid "Multiplier"
-msgstr ""
+msgstr "مبشر"
 
 #: post-type/module-base.php:123
 msgid "Status"
-msgstr ""
+msgstr "وضعیت"
 
 #: post-type/module-base.php:124
 msgid "Set the current status."
-msgstr ""
+msgstr "وضعیت فعلی مشخص کنید."
 
 #: post-type/module-base.php:128
 msgid "Prayer Request Answered"
-msgstr ""
+msgstr "درخواست دعا"
 
 #: post-type/module-base.php:129
 msgid "Prayer request has been answered."
-msgstr ""
+msgstr "درخواست دعا مستجاب شد."
 
 #: post-type/module-base.php:133
 msgid "Active"
-msgstr ""
+msgstr "فعال"
 
 #: post-type/module-base.php:134
 msgid "Prayer request is active."
-msgstr ""
+msgstr "این درخواست دعا  فعال است."
 
 #: post-type/module-base.php:155
 msgid "Assigned To"
-msgstr ""
+msgstr "اختصاص داده شده به"
 
 #: post-type/module-base.php:156
-msgid "This person is responsible to follow up with and update this prayer request."
-msgstr ""
+msgid ""
+"This person is responsible to follow up with and update this prayer request."
+msgstr "این شخص موظف است این درخواست دعا را پیگیری و به روز کند."
 
 #: post-type/module-base.php:224
 msgid "Related Contacts"
-msgstr ""
+msgstr "مخاطبین مرتبط"
 
 #: post-type/module-base.php:225
 msgid "The contacts connected to this prayer request."
-msgstr ""
+msgstr "مخاطبین متصل به این درخواست دعا."
 
 #: post-type/module-base.php:236
 msgid "Related Groups"
-msgstr ""
+msgstr "گروههای مرتبط"
 
 #: post-type/module-base.php:237
 msgid "The groups connected to this prayer request."
-msgstr ""
+msgstr "گروهها متصل به این درخواست دعا."
 
 #: post-type/module-base.php:452
 msgid "Assigned to me"
-msgstr ""
+msgstr "اختصاص‌داده‌شده به من"
 
-#: post-type/module-base.php:460
-#: post-type/module-base.php:517
+#: post-type/module-base.php:460 post-type/module-base.php:517
 #: post-type/module-base.php:525
 msgid "All"
-msgstr ""
+msgstr "همه"
 
 #: tile/custom-tile.php:138
 msgctxt "Prayer Request for this Contact"
 msgid "Prayer Request for this %s"
-msgstr ""
+msgstr "درخواست دعا برای این %s"
 
 #: tile/custom-tile.php:155
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 #: tile/custom-tile.php:159
 msgid "Prayer Request Content"
-msgstr ""
+msgstr "مطالب درخواست دعا"
 
 #: tile/custom-tile.php:162
 msgid "Create Prayer Request"
-msgstr ""
+msgstr "ایجاد درخواست دعا"
 
-#: tile/settings-tile.php:43
-#: tile/settings-tile.php:61
+#: tile/settings-tile.php:43 tile/settings-tile.php:61
 msgid "Custom Settings Section"
 msgstr ""
 

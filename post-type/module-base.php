@@ -15,7 +15,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
     public $post_type = "prayer_request";
     public $module = "prayer_request_base";
     public $single_name = 'Prayer Request';
-    public $plural_name = 'Prayer Requests';
+    public $plural_name ='Prayer Requests';
     public static function post_type(){
         return 'prayer_request';
     }
@@ -43,6 +43,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
         // add_filter( 'dt_details_additional_tiles', [ $this, 'dt_details_additional_tiles' ], 10, 2 );
         // add_action( 'dt_details_additional_section', [ $this, 'dt_details_additional_section' ], 20, 2 );
         add_action( 'wp_enqueue_scripts', [ $this, 'scripts' ], 99 );
+        add_filter( 'dt_get_post_type_settings', [ $this, 'dt_get_post_type_settings' ], 20, 2 );
 
         // hooks
         add_action( "post_connection_removed", [ $this, "post_connection_removed" ], 10, 4 );
@@ -60,8 +61,25 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
 
     public function after_setup_theme(){
         if ( class_exists( 'Disciple_Tools_Post_Type_Template' ) ) {
+            $this->single_name = __( "Prayer Request", 'disciple-tools-prayer-requests' );
+            $this->plural_name = __( "Prayer Requests", 'disciple-tools-prayer-requests' );
+
             new Disciple_Tools_Post_Type_Template( $this->post_type, $this->single_name, $this->plural_name );
         }
+    }
+
+        /**
+     * Set the singular and plural translations for this post types settings
+     * The add_filter is set onto a higher priority than the one in Disciple_tools_Post_Type_Template
+     * so as to enable localisation changes. Otherwise the system translation passed in to the custom post type
+     * will prevail.
+     */
+    public function dt_get_post_type_settings( $settings, $post_type ){
+        if ( $post_type === $this->post_type ){
+            $settings['label_singular'] =  __( "Prayer Request", 'disciple-tools-prayer-requests' );
+            $settings['label_plural'] = __( "Prayer Requests", 'disciple-tools-prayer-requests' );
+        }
+        return $settings;
     }
 
     /**

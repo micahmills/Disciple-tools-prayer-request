@@ -19,12 +19,12 @@ add_filter( 'dt_post_type_modules', function( $modules ){
      * @todo Add more modules by adding a new array element. i.e. 'prayer_request_base_two'.
      */
     $modules["prayer_request_base"] = [
-        "name" => "Prayer Request",
+        "name" =>  __( "Prayer Request", "disciple-tools-prayer-requests" ),
         "enabled" => true,
         "locked" => true,
         "prerequisites" => [ "contacts_base" ],
         "post_type" => "prayer_request",
-        "description" => "Prayer Request"
+        "description" => __( "Prayer Request", 'disciple-tools-prayer-requests' )
     ];
 
     return $modules;
