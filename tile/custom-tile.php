@@ -152,14 +152,14 @@ class Disciple_Tools_Prayer_Requests_Tile
 
             <div class="cell small-12 medium-4">
                 <div class="section-subheader">
-                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/name.svg' ) ?>"><?php _e( 'Name', 'disciple-tools-prayer-requests' ) ?></span>
+                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/name.svg' ) ?>"><?php esc_html_e( 'Name', 'disciple-tools-prayer-requests' ) ?></span>
                 </div>
                 <input id="disciple_tools_prayer_requests_name" type="text" required="" class="" value="">
                 <div class="section-subheader">
-                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/edit.svg' ) ?>"><?php _e( 'Prayer Request Content', 'disciple-tools-prayer-requests' ) ?>
+                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/edit.svg' ) ?>"><?php esc_html_e( 'Prayer Request Content', 'disciple-tools-prayer-requests' ) ?>
                 </div>
                 <textarea id="disciple_tools_prayer_requests_text" class="textarea"></textarea>
-                <button id="disciple_tools_prayer_requests_button" class="button"><?php _e( 'Create Prayer Request', 'disciple-tools-prayer-requests' ) ?></button>
+                <button id="disciple_tools_prayer_requests_button" class="button"><?php esc_html_e( 'Create Prayer Request', 'disciple-tools-prayer-requests' ) ?></button>
             </div>
 
             <script>

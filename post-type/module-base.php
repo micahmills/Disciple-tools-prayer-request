@@ -76,7 +76,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
      */
     public function dt_get_post_type_settings( $settings, $post_type ){
         if ( $post_type === $this->post_type ){
-            $settings['label_singular'] =  __( "Prayer Request", 'disciple-tools-prayer-requests' );
+            $settings['label_singular'] = __( "Prayer Request", 'disciple-tools-prayer-requests' );
             $settings['label_plural'] = __( "Prayer Requests", 'disciple-tools-prayer-requests' );
         }
         return $settings;
