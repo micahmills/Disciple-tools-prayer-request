@@ -12,9 +12,10 @@ class Disciple_Tools_Prayer_Requests_Tile
     } // End instance()
 
     public function __construct(){
-        add_filter( 'dt_details_additional_tiles', [ $this, "dt_details_additional_tiles" ], 10, 2 );
-        add_filter( "dt_custom_fields_settings", [ $this, "dt_custom_fields" ], 1, 2 );
-        add_action( "dt_details_additional_section", [ $this, "dt_add_section" ], 30, 2 );
+        add_filter( 'dt_details_additional_tiles', [ $this, "dt_details_additional_tiles" ], 20, 2 );
+        add_filter( "dt_custom_fields_settings", [ $this, "dt_custom_fields" ], 20, 2 );
+        add_action( "dt_details_additional_section", [ $this, "dt_add_section" ], 10, 2 );
+        add_action( "dt_details_additional_section", [ $this, "dt_add_submit_button" ], 21, 2 );
     }
 
     /**
@@ -28,7 +29,9 @@ class Disciple_Tools_Prayer_Requests_Tile
      * @return mixed
      */
     public function dt_details_additional_tiles( $tiles, $post_type = "" ) {
-        $tiles["disciple_tools_prayer_requests"] = [ "label" => __( "Prayer Requests", 'disciple-tools-prayer-requests' ) ];
+        if ( $post_type !== "prayer_request" ) {
+            $tiles["disciple_tools_prayer_requests"] = [ "label" => __( "Prayer Requests", 'disciple-tools-prayer-requests' ) ];
+        }
         return $tiles;
     }
 
@@ -41,7 +44,7 @@ class Disciple_Tools_Prayer_Requests_Tile
         /**
          * @todo set the post type
          */
-        // if ( $post_type === "prayer_request" ){
+        // if ( $post_type !== "prayer_request" ){
             /**
              * @todo Add the fields that you want to include in your tile.
              *
@@ -56,15 +59,24 @@ class Disciple_Tools_Prayer_Requests_Tile
             /**
              * This is an example of a text field
              */
-            // $fields['disciple_tools_prayer_requests_text'] = [
-            //     'name'        => __( 'Prayer Request Content', 'disciple-tools-prayer-requests' ),
-            //     'description' => _x( 'Prayer Request Content', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
-            //     'type'        => 'textarea',
-            //     'default'     => '',
-            //     'tile' => 'disciple_tools_prayer_requests',
-            //     "in_create_form" => true,
-            //     'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
-            // ];
+            $fields['disciple_tools_prayer_requests_name'] = [
+                'name'        => __( 'Name', 'disciple-tools-prayer-requests' ),
+                'description' => _x( 'Prayer Request Title', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
+                'type'        => 'text',
+                'default'     => '',
+                'tile' => 'disciple_tools_prayer_requests',
+                "in_create_form" => true,
+                'icon' => get_template_directory_uri() . '/dt-assets/images/name.svg',
+            ];
+            $fields['disciple_tools_prayer_requests_text'] = [
+                'name'        => __( 'Prayer Request Content', 'disciple-tools-prayer-requests' ),
+                'description' => _x( 'Prayer Request Content', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
+                'type'        => 'textarea',
+                'default'     => '',
+                'tile' => 'disciple_tools_prayer_requests',
+                "in_create_form" => true,
+                'icon' => get_template_directory_uri() . '/dt-assets/images/edit.svg',
+            ];
             /**
              * This is an example of a multiselect field
              */
@@ -110,14 +122,14 @@ class Disciple_Tools_Prayer_Requests_Tile
             //     "select_cannot_be_empty" => true
             // ];
         // }
-        return $fields;
+            return $fields;
     }
 
     public function dt_add_section( $section, $post_type ) {
         /**
          * @todo set the post type and the section key that you created in the dt_details_additional_tiles() function
          */
-        if ( $section === "disciple_tools_prayer_requests" ){
+        if ( $section === "disciple_tools_prayer_requests" ) {
             /**
              * These are two sets of key data:
              * $this_post is the details for this specific post
@@ -126,6 +138,7 @@ class Disciple_Tools_Prayer_Requests_Tile
              * You can pull any query data into this section and display it.
              */
             $this_post = DT_Posts::get_post( $post_type, get_the_ID() );
+
             $post_type_fields = DT_Posts::get_post_field_settings( $post_type );
             $post_type_label = DT_Posts::get_post_settings( get_post_type() ?: "contacts" )['label_singular'];
             ?>
@@ -136,64 +149,19 @@ class Disciple_Tools_Prayer_Requests_Tile
             <?php if ( $post_type === "contacts" || $post_type === "groups" ) { ?>
                 <div id="connected_Prayer_Requests" class="cell small-12 medium-4">
                 <div class="section-subheader"><?php echo esc_html( sprintf( _x( "Prayer Request for this %s", "Prayer Request for this Contact", 'disciple-tools-prayer-requests' ), $post_type_label ?? $post_type ) ) ?></div>
-                <?php if ( array_key_exists( 'prayer_request', $this_post ) ) :
-                    foreach ( $this_post['prayer_request'] as $prayer_request ) :
+                <?php if ( array_key_exists( 'prayer_request', $this_post ) ) {
+                    foreach ( $this_post['prayer_request'] as $prayer_request ) {
                             $prayer_request_id = $prayer_request['ID'];
                             $prayer_request_post = DT_Posts::get_post( 'prayer_request', $prayer_request_id );
                         ?>
                         <a href="<?php echo esc_html( $prayer_request_post["permalink"] ) ?>" class="prayer_request_link">
 
                         <img class="dt-icon" <?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( 'style=opacity:0.35' ); } ?> src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> <?php echo esc_html( $prayer_request_post["title"] ) ?><?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( ' - '. $prayer_request_post['status']['label'] ); } ?></a><br>
-                    <?php endforeach;
-                endif;
-                ?>
-
-            </div>
-
-            <div class="cell small-12 medium-4">
-                <div class="section-subheader">
-                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/name.svg' ) ?>"><?php esc_html_e( 'Name', 'disciple-tools-prayer-requests' ) ?></span>
-                </div>
-                <input id="disciple_tools_prayer_requests_name" type="text" required="" class="" value="">
-                <div class="section-subheader">
-                    <img class="dt-icon" src="<?php echo esc_html( get_template_directory_uri() . '/dt-assets/images/edit.svg' ) ?>"><?php esc_html_e( 'Prayer Request Content', 'disciple-tools-prayer-requests' ) ?>
-                </div>
-                <textarea id="disciple_tools_prayer_requests_text" class="textarea"></textarea>
-                <button id="disciple_tools_prayer_requests_button" class="button"><?php esc_html_e( 'Create Prayer Request', 'disciple-tools-prayer-requests' ) ?></button>
-            </div>
-
-            <script>
-                fields = {
-                    "<?php echo esc_html( $post_type ); ?>": {
-                        "values": [
-                            {
-                                "value": "<?php echo esc_html( get_the_ID() ) ?>"
-                            }
-                        ]
-                    },
-                    "name": "",
-                    "disciple_tools_prayer_requests_text": "",
-                    "assigned_to": <?php echo esc_html( get_current_user_id() ); ?>
-                }
-
-                var addPrayerRequestButton = document.querySelector("#disciple_tools_prayer_requests_button");
-
-                addPrayerRequestButton.addEventListener('click', event => {
-                    fields.disciple_tools_prayer_requests_text = document.querySelector("#disciple_tools_prayer_requests_text").value
-                    fields.name = document.querySelector("#disciple_tools_prayer_requests_name").value
-
-                    window.API.create_post('prayer_request', fields).then((newRecord)=>{
-                        let template = `<a href="${newRecord.permalink}" class="prayer_request_link"><img class="dt-icon" ${ newRecord.status.key === 'answered' ? `style=opacity:0.35` : '' } src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> ${ newRecord.name }${ newRecord.status.key === 'answered' ? ` - ${ newRecord.status.label }` : '' }</a><br>`;
-
-                        document.querySelector('#connected_Prayer_Requests').insertAdjacentHTML('beforeend', template);
-                        document.querySelector("#disciple_tools_prayer_requests_text").value = "";
-                        document.querySelector("#disciple_tools_prayer_requests_name").value = "";
-                    });
-                });
-            </script>
-            <?php } else if ( $post_type === "prayer_request" ) { ?>
+                    <?php }
+                } ?>
+            <?php } elseif ( $post_type === "prayer_request" ) { ?>
                 <div class="cell small-12 medium-4">
-                    <span class="prayer_request_content_container">
+                    <span class="prayer_request_content_container"></span>
                     <p class="prayer_request_content"><?php echo esc_html( $this_post['disciple_tools_prayer_requests_text'] ); ?></p>
                     <?php
                     if ( current_user_can( "assign_any_contacts" ) || isset( $this_post["assigned_to"]["id"] ) && $this_post["assigned_to"]["id"] == get_current_user_id() ) : ?>
@@ -303,8 +271,61 @@ class Disciple_Tools_Prayer_Requests_Tile
                         })
                     })
                     </script>
+            <?php } ?>
+                </div>
+        <?php }
+    }
+
+    public function dt_add_submit_button( $section, $post_type ) {
+        if ( $section === "disciple_tools_prayer_requests" && $post_type !== "prayer_request" ){
+         /**
+         * These are two sets of key data:
+         * $this_post is the details for this specific post
+         * $post_type_fields is the list of the default fields for the post type
+         *
+         * You can pull any query data into this section and display it.
+         */
+            $this_post = DT_Posts::get_post( $post_type, get_the_ID() );
+            $post_type_fields = DT_Posts::get_post_field_settings( $post_type );
+            $post_type_label = DT_Posts::get_post_settings( get_post_type() ?: "contacts" )['label_singular'];
+        /**
+         * @todo set the post type and the section key that you created in the dt_details_additional_tiles() function
+         */?>
+                <button id="disciple_tools_prayer_requests_button" class="button"><?php esc_html_e( 'Create Prayer Request', 'disciple-tools-prayer-requests' ) ?></button>
+            <!-- </div> -->
+
+            <script>
+                fields = {
+                    "<?php echo esc_html( $post_type ); ?>": {
+                        "values": [
+                            {
+                                "value": "<?php echo esc_html( get_the_ID() ) ?>"
+                            }
+                        ]
+                    },
+                    "name": "",
+                    "disciple_tools_prayer_requests_text": "",
+                    "assigned_to": <?php echo esc_html( get_current_user_id() ); ?>
+                }
+
+                var addPrayerRequestButton = document.querySelector("#disciple_tools_prayer_requests_button");
+
+                addPrayerRequestButton.addEventListener('click', event => {
+                    fields.disciple_tools_prayer_requests_text = document.querySelector("#disciple_tools_prayer_requests_text").value
+                    fields.name = document.querySelector("#disciple_tools_prayer_requests_name").value
+console.log(fields);
+                    window.API.create_post('prayer_request', fields).then((newRecord)=>{
+                        let template = `<a href="${newRecord.permalink}" class="prayer_request_link"><img class="dt-icon" ${ newRecord.status.key === 'answered' ? `style=opacity:0.35` : '' } src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> ${ newRecord.name }${ newRecord.status.key === 'answered' ? ` - ${ newRecord.status.label }` : '' }</a><br>`;
+
+                        document.querySelector('#connected_Prayer_Requests').insertAdjacentHTML('beforeend', template);
+                        document.querySelector("#disciple_tools_prayer_requests_text").value = "";
+                        document.querySelector("#disciple_tools_prayer_requests_name").value = "";
+                    });
+                });
+            </script>
+            <?php } else if ( $post_type === "prayer_request" ) { ?>
+
             <?php }
-        }
     }
 }
 Disciple_Tools_Prayer_Requests_Tile::instance();
