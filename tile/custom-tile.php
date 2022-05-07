@@ -60,7 +60,7 @@ class Disciple_Tools_Prayer_Requests_Tile
              * This is an example of a text field
              */
             $fields['disciple_tools_prayer_requests_name'] = [
-                'name'        => __( 'Name', 'disciple-tools-prayer-requests' ),
+                'name'        => __( 'Prayer Request Title', 'disciple-tools-prayer-requests' ),
                 'description' => _x( 'Prayer Request Title', 'Optional Documentation', 'disciple-tools-prayer-requests' ),
                 'type'        => 'text',
                 'default'     => '',
