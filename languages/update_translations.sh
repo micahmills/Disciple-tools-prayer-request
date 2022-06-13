@@ -42,7 +42,7 @@ fi
 
 
 #Download .po and .mo files
-php download-poeditor-updates.php --token="$TOKEN" --app-id="$APP_ID"
+php ./languages/download-poeditor-updates.php --token="$TOKEN" --app-id="$APP_ID" --domain="$DOMAIN"
 
 #Commit changes
 git add *.pot;
