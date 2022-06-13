@@ -272,7 +272,6 @@ class Disciple_Tools_Prayer_Requests_Tile
                     })
                     </script>
             <?php } ?>
-                </div>
         <?php }
     }
 
