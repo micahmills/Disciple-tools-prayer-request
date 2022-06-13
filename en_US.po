@@ -5,128 +5,128 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: Disciple.Tools - Prayer Requests Plugin\n"
-"Language: fa\n"
+"Language: en\n"
 
 #. Plugin Name of the plugin
 #: 
 msgid "Disciple.Tools - Prayer Requests"
-msgstr "‫Disciple.Tools - درخواست دعا"
+msgstr "Disciple.Tools - Prayer Requests"
 
 #. Plugin URI of the plugin
 #: 
 msgid "https://github.com/micahmills/disciple-tools-prayer-request"
-msgstr "‫https://github.com/micahmills/disciple-tools-prayer-request"
+msgstr "https://github.com/micahmills/disciple-tools-prayer-request"
 
 #. Description of the plugin
 #: 
 msgid "Disciple.Tools - Prayer Requests easily share prayer requests with your team"
-msgstr "‫Disciple.Tools - درخواست دعا. به راحتی درخواست های دعا را با تیم خود به اشتراک بگذارید"
+msgstr "Disciple.Tools - Prayer Requests easily share prayer requests with your team"
 
 #. Author URI of the plugin
 #: 
 msgid "https://github.com/micahmills"
-msgstr "‫https://github.com/micahmills"
+msgstr "https://github.com/micahmills"
 
 #: post-type/loader.php:22
 #: post-type/loader.php:27
 #: post-type/module-base.php:64
 #: post-type/module-base.php:79
 msgid "Prayer Request"
-msgstr "درخواست دعا"
+msgstr "Prayer Request"
 
 #: post-type/module-base.php:65
 #: post-type/module-base.php:80
 #: post-type/module-base.php:304
 #: tile/custom-tile.php:33
 msgid "Prayer Requests"
-msgstr "درخواست ها دعا"
+msgstr "Prayer Requests"
 
 #: post-type/module-base.php:95
 msgid "Multiplier"
-msgstr "مبشر"
+msgstr "Multiplier"
 
 #: post-type/module-base.php:138
 msgid "Status"
-msgstr "وضعیت"
+msgstr "Status"
 
 #: post-type/module-base.php:139
 msgid "Set the current status."
-msgstr "وضعیت فعلی مشخص کنید."
+msgstr "Set the current status."
 
 #: post-type/module-base.php:143
 msgid "Prayer Request Answered"
-msgstr "درخواست دعا"
+msgstr "Prayer Request Answered"
 
 #: post-type/module-base.php:144
 msgid "Prayer request has been answered."
-msgstr "درخواست دعا مستجاب شد."
+msgstr "Prayer request has been answered."
 
 #: post-type/module-base.php:148
 msgid "Active"
-msgstr "فعال"
+msgstr "Active"
 
 #: post-type/module-base.php:149
 msgid "Prayer request is active."
-msgstr "این درخواست دعا  فعال است."
+msgstr "Prayer request is active."
 
 #: post-type/module-base.php:170
 msgid "Assigned To"
-msgstr "اختصاص داده شده به"
+msgstr "Assigned To"
 
 #: post-type/module-base.php:171
 msgid "This person is responsible to follow up with and update this prayer request."
-msgstr "این شخص موظف است این درخواست دعا را پیگیری و به روز کند."
+msgstr "This person is responsible to follow up with and update this prayer request."
 
 #: post-type/module-base.php:239
 msgid "Related Contacts"
-msgstr "مخاطبین مرتبط"
+msgstr "Related Contacts"
 
 #: post-type/module-base.php:240
 msgid "The contacts connected to this prayer request."
-msgstr "مخاطبین متصل به این درخواست دعا."
+msgstr "The contacts connected to this prayer request."
 
 #: post-type/module-base.php:251
 msgid "Related Groups"
-msgstr "گروههای مرتبط"
+msgstr "Related Groups"
 
 #: post-type/module-base.php:252
 msgid "The groups connected to this prayer request."
-msgstr "گروهها متصل به این درخواست دعا."
+msgstr "The groups connected to this prayer request."
 
 #: post-type/module-base.php:584
 msgid "Assigned to me"
-msgstr "اختصاص‌داده‌شده به من"
+msgstr "Assigned to me"
 
 #: post-type/module-base.php:592
 #: post-type/module-base.php:649
 #: post-type/module-base.php:657
 msgid "All"
-msgstr "همه"
+msgstr "All"
 
 #: tile/custom-tile.php:63
 msgid "Prayer Request Title"
-msgstr "عنوان درخواست دعا"
+msgstr "Prayer Request Title"
 
 #: tile/custom-tile.php:64
 msgctxt "Optional Documentation"
 msgid "Prayer Request Title"
-msgstr "عنوان درخواست دعا"
+msgstr "Prayer Request Title"
 
 #: tile/custom-tile.php:72
 msgid "Prayer Request Content"
-msgstr "مطالب درخواست دعا"
+msgstr "Prayer Request Content"
 
 #: tile/custom-tile.php:73
 msgctxt "Optional Documentation"
 msgid "Prayer Request Content"
-msgstr "مطالب درخواست دعا"
+msgstr "Prayer Request Content"
 
 #: tile/custom-tile.php:151
 msgctxt "Prayer Request for this Contact"
 msgid "Prayer Request for this %s"
-msgstr "درخواست دعا برای این %s"
+msgstr "Prayer Request for this %s"
 
 #: tile/custom-tile.php:293
 msgid "Create Prayer Request"
-msgstr "ایجاد درخواست دعا"
+msgstr "Create Prayer Request"
 
