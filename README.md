@@ -38,3 +38,5 @@ in the [Discussions](https://github.com/micahmills/disciple-tools-prayer-request
 code contributions are welcome using the [Pull Request](https://github.com/micahmills/disciple-tools-prayer-requests/pulls)
 system for git. For a more details on contribution see the
 [contribution guidelines](https://github.com/micahmills/disciple-tools-prayer-requests/blob/master/CONTRIBUTING.md).
+
+[Help translate](https://poeditor.com/join/project/qcqvI469XR) the prayer request plugin.
