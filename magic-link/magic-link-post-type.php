@@ -103,12 +103,12 @@ class Disciple_Tools_Prayer_Requests_Magic_Link extends DT_Magic_Url_Base {
      * Post Type Tile Examples
      */
     public function dt_details_additional_tiles( $tiles, $post_type = "" ) {
-        if ( $post_type === $this->post_type ){
-            $tiles["dt_starters_magic_url"] = [
-                "label" => __( "Magic Url", 'disciple-tools-prayer-requests' ),
-                "description" => "The Magic URL sets up a page accessible without authentication, only the link is needed. Useful for small applications liked to this record, like quick surveys or updates."
-            ];
-        }
+        // if ( $post_type === $this->post_type ){
+        //     $tiles["dt_starters_magic_url"] = [
+        //         "label" => __( "Magic Url", 'disciple-tools-prayer-requests' ),
+        //         "description" => "The Magic URL sets up a page accessible without authentication, only the link is needed. Useful for small applications liked to this record, like quick surveys or updates."
+        //     ];
+        // }
         return $tiles;
     }
     public function dt_details_additional_section( $section, $post_type ) {
@@ -203,7 +203,7 @@ class Disciple_Tools_Prayer_Requests_Magic_Link extends DT_Magic_Url_Base {
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'translations' => [
-                    'add' => __( 'Add Magic', 'disciple-tools-prayer-requests' ),
+                    // 'add' => __( 'Add Magic', 'disciple-tools-prayer-requests' ),
                 ],
             ]) ?>][0]
 

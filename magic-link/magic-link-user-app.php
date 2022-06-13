@@ -164,7 +164,7 @@ class Disciple_Tools_Prayer_Requests_Magic_User_App extends DT_Magic_Url_Base {
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'translations' => [
-                    'add' => __( 'Add Magic', 'disciple-tools-prayer-requests' ),
+                    // 'add' => __( 'Add Magic', 'disciple-tools-prayer-requests' ),
                 ],
             ]) ?>][0]
 
