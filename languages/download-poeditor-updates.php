@@ -1,7 +1,7 @@
 <?php
 
 
-$args = getopt( null, [ "token:", "app-id:" ] );
+$args = getopt( null, [ "token:", "app-id:", "domain:" ] );
 if ( !isset( $args["token"], $args["app-id"] ) ){
     echo "Missing token or app id";
 }
@@ -82,7 +82,7 @@ foreach ( $output["result"]["languages"] as $lang ){
     $lang_code = htmlspecialchars( $lang["code"] );
     $file_name = $text_domain . '-' . $lang_code;
     if ( isset( $lang_codes[$lang_code] ) ){
-        $file_name = $lang_codes[$lang_code];
+        $file_name = $text_domain . '-' . $lang_codes[$lang_code];
     }
     $last_updated = strtotime( $lang["updated"] );
 
@@ -112,7 +112,7 @@ foreach ( $output["result"]["languages"] as $lang ){
         if ( isset( $download_link_response["result"]["url"] ) ){
             $url = $download_link_response["result"]["url"];
             echo( "Downloading " . $lang_code . ".po \r\n" ); //phpcs:ignore
-            $success = file_put_contents( $file_name . '.po', file_get_contents( $url ) );
+            $success = file_put_contents( './languages/' . $file_name . '.po', file_get_contents( $url ) );
             if ( !$success ){
                 echo "error saving .po";
             }

@@ -1,49 +1,43 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Disciple.Tools - Prayer Requests 0.1.10\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disciple-tools-"
-"prayer-request\n"
-"POT-Creation-Date: 2022-06-13T09:28:21+00:00\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: test\n"
-"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Disciple.Tools - Prayer Requests Plugin\n"
+"Language: fa\n"
 
 #. Plugin Name of the plugin
+#: 
 msgid "Disciple.Tools - Prayer Requests"
 msgstr "‫Disciple.Tools - درخواست دعا"
 
 #. Plugin URI of the plugin
+#: 
 msgid "https://github.com/micahmills/disciple-tools-prayer-request"
 msgstr "‫https://github.com/micahmills/disciple-tools-prayer-request"
 
 #. Description of the plugin
-msgid ""
-"Disciple.Tools - Prayer Requests easily share prayer requests with your team"
-msgstr ""
-"‫Disciple.Tools - درخواست دعا. به راحتی درخواست های دعا را با تیم خود به "
-"اشتراک بگذارید"
+#: 
+msgid "Disciple.Tools - Prayer Requests easily share prayer requests with your team"
+msgstr "‫Disciple.Tools - درخواست دعا. به راحتی درخواست های دعا را با تیم خود به اشتراک بگذارید"
 
 #. Author URI of the plugin
+#: 
 msgid "https://github.com/micahmills"
 msgstr "‫https://github.com/micahmills"
 
-#: post-type/loader.php:22 post-type/loader.php:27 post-type/module-base.php:64
+#: post-type/loader.php:22
+#: post-type/loader.php:27
+#: post-type/module-base.php:64
 #: post-type/module-base.php:79
 msgid "Prayer Request"
 msgstr "درخواست دعا"
 
-#: post-type/module-base.php:65 post-type/module-base.php:80
-#: post-type/module-base.php:304 tile/custom-tile.php:33
+#: post-type/module-base.php:65
+#: post-type/module-base.php:80
+#: post-type/module-base.php:304
+#: tile/custom-tile.php:33
 msgid "Prayer Requests"
 msgstr "درخواست ها دعا"
 
@@ -80,8 +74,7 @@ msgid "Assigned To"
 msgstr "اختصاص داده شده به"
 
 #: post-type/module-base.php:171
-msgid ""
-"This person is responsible to follow up with and update this prayer request."
+msgid "This person is responsible to follow up with and update this prayer request."
 msgstr "این شخص موظف است این درخواست دعا را پیگیری و به روز کند."
 
 #: post-type/module-base.php:239
@@ -104,7 +97,8 @@ msgstr "گروهها متصل به این درخواست دعا."
 msgid "Assigned to me"
 msgstr "اختصاص‌داده‌شده به من"
 
-#: post-type/module-base.php:592 post-type/module-base.php:649
+#: post-type/module-base.php:592
+#: post-type/module-base.php:649
 #: post-type/module-base.php:657
 msgid "All"
 msgstr "همه"
@@ -136,5 +130,3 @@ msgstr "درخواست دعا برای این %s"
 msgid "Create Prayer Request"
 msgstr "ایجاد درخواست دعا"
 
-#~ msgid "Name"
-#~ msgstr "نام"
