@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Disciple Tools - Plugin Starter Template\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disciple-tools-"
 "prayer-request\n"
-"POT-Creation-Date: 2022-06-13T08:47:16+00:00\n"
-"PO-Revision-Date: 2022-06-13 12:48+0400\n"
+"POT-Creation-Date: 2022-06-13T08:50:54+00:00\n"
+"PO-Revision-Date: 2022-06-13 13:29+0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -41,15 +41,14 @@ msgstr ""
 msgid "https://github.com/micahmills"
 msgstr ""
 
-#: admin/admin-menu-and-tabs.php:40 admin/admin-menu-and-tabs.php:51
-#: post-type/module-base.php:65 post-type/module-base.php:80
-#: post-type/module-base.php:304 tile/custom-tile.php:33
-msgid "Prayer Requests"
-msgstr ""
-
 #: post-type/loader.php:22 post-type/loader.php:27 post-type/module-base.php:64
 #: post-type/module-base.php:79
 msgid "Prayer Request"
+msgstr ""
+
+#: post-type/module-base.php:65 post-type/module-base.php:80
+#: post-type/module-base.php:304 tile/custom-tile.php:33
+msgid "Prayer Requests"
 msgstr ""
 
 #: post-type/module-base.php:95
@@ -139,18 +138,4 @@ msgstr ""
 
 #: tile/custom-tile.php:293
 msgid "Create Prayer Request"
-msgstr ""
-
-#: tile/settings-tile.php:43 tile/settings-tile.php:61
-msgid "Custom Settings Section"
-msgstr ""
-
-#: tile/settings-tile.php:77
-msgctxt "Optional Documentation"
-msgid "Custom Settings Section"
-msgstr ""
-
-#: tile/settings-tile.php:78
-msgctxt "Optional Documentation"
-msgid "Add your own help information into this modal."
 msgstr ""
