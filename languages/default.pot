@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Disciple.Tools - Prayer Requests plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Disciple.Tools - Prayer Requests 0.1.12\n"
+"Project-Id-Version: Disciple.Tools - Prayer Requests 0.1.13\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disciple-tools-prayer-request\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-05-07T12:38:57+00:00\n"
+"POT-Creation-Date: 2022-06-13T08:50:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: disciple-tools-prayer-requests\n"
@@ -30,29 +30,18 @@ msgstr ""
 msgid "https://github.com/micahmills"
 msgstr ""
 
-#: admin/admin-menu-and-tabs.php:40
-#: admin/admin-menu-and-tabs.php:51
-#: post-type/module-base.php:65
-#: post-type/module-base.php:80
-#: post-type/module-base.php:304
-#: tile/custom-tile.php:33
-msgid "Prayer Requests"
-msgstr ""
-
-#: magic-link/magic-link-post-type.php:108
-msgid "Magic Url"
-msgstr ""
-
-#: magic-link/magic-link-post-type.php:206
-#: magic-link/magic-link-user-app.php:167
-msgid "Add Magic"
-msgstr ""
-
 #: post-type/loader.php:22
 #: post-type/loader.php:27
 #: post-type/module-base.php:64
 #: post-type/module-base.php:79
 msgid "Prayer Request"
+msgstr ""
+
+#: post-type/module-base.php:65
+#: post-type/module-base.php:80
+#: post-type/module-base.php:304
+#: tile/custom-tile.php:33
+msgid "Prayer Requests"
 msgstr ""
 
 #: post-type/module-base.php:95
@@ -140,21 +129,6 @@ msgctxt "Prayer Request for this Contact"
 msgid "Prayer Request for this %s"
 msgstr ""
 
-#: tile/custom-tile.php:294
+#: tile/custom-tile.php:293
 msgid "Create Prayer Request"
-msgstr ""
-
-#: tile/settings-tile.php:43
-#: tile/settings-tile.php:61
-msgid "Custom Settings Section"
-msgstr ""
-
-#: tile/settings-tile.php:77
-msgctxt "Optional Documentation"
-msgid "Custom Settings Section"
-msgstr ""
-
-#: tile/settings-tile.php:78
-msgctxt "Optional Documentation"
-msgid "Add your own help information into this modal."
 msgstr ""
