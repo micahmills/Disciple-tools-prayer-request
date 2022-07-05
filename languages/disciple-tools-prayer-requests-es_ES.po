@@ -1,135 +1,133 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Disciple.Tools - Prayer Requests 0.1.10\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disciple-tools-"
-"prayer-request\n"
-"POT-Creation-Date: 2022-06-13T09:28:21+00:00\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: test\n"
-"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Disciple.Tools - Prayer Requests Plugin\n"
+"Language: es\n"
 
 #. Plugin Name of the plugin
+#: 
 msgid "Disciple.Tools - Prayer Requests"
-msgstr ""
+msgstr "Disciple.Tools - Solicitudes de oración"
 
 #. Plugin URI of the plugin
+#: 
 msgid "https://github.com/micahmills/disciple-tools-prayer-request"
-msgstr ""
+msgstr "https://github.com/micahmills/disciple-tools-prayer-request"
 
 #. Description of the plugin
-msgid ""
-"Disciple.Tools - Prayer Requests easily share prayer requests with your team"
-msgstr ""
+#: 
+msgid "Disciple.Tools - Prayer Requests easily share prayer requests with your team"
+msgstr "Disciple.Tools - Las solicitudes de oración comparten fácilmente las solicitudes de oración con su equipo"
 
 #. Author URI of the plugin
+#: 
 msgid "https://github.com/micahmills"
-msgstr ""
+msgstr "https://github.com/micahmills"
 
-#: post-type/loader.php:22 post-type/loader.php:27 post-type/module-base.php:64
+#: post-type/loader.php:22
+#: post-type/loader.php:27
+#: post-type/module-base.php:64
 #: post-type/module-base.php:79
 msgid "Prayer Request"
-msgstr ""
+msgstr "Petición de oración"
 
-#: post-type/module-base.php:65 post-type/module-base.php:80
-#: post-type/module-base.php:304 tile/custom-tile.php:33
+#: post-type/module-base.php:65
+#: post-type/module-base.php:80
+#: post-type/module-base.php:304
+#: tile/custom-tile.php:33
 msgid "Prayer Requests"
-msgstr ""
+msgstr "Peticiónes de oraciónes"
 
 #: post-type/module-base.php:95
 msgid "Multiplier"
-msgstr ""
+msgstr "Multiplicadora"
 
 #: post-type/module-base.php:138
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: post-type/module-base.php:139
 msgid "Set the current status."
-msgstr ""
+msgstr "Establezca el estado actual."
 
 #: post-type/module-base.php:143
 msgid "Prayer Request Answered"
-msgstr ""
+msgstr "Solicitud de oración respondida"
 
 #: post-type/module-base.php:144
 msgid "Prayer request has been answered."
-msgstr ""
+msgstr "La solicitud de oración ha sido respondida."
 
 #: post-type/module-base.php:148
 msgid "Active"
-msgstr ""
+msgstr "Activa"
 
 #: post-type/module-base.php:149
 msgid "Prayer request is active."
-msgstr ""
+msgstr "La solicitud de oración está activa."
 
 #: post-type/module-base.php:170
 msgid "Assigned To"
-msgstr ""
+msgstr "Asignado a"
 
 #: post-type/module-base.php:171
-msgid ""
-"This person is responsible to follow up with and update this prayer request."
-msgstr ""
+msgid "This person is responsible to follow up with and update this prayer request."
+msgstr "Esta persona es responsable de hacer un seguimiento y actualizar esta solicitud de oración."
 
 #: post-type/module-base.php:239
 msgid "Related Contacts"
-msgstr ""
+msgstr "Contactos relacionados"
 
 #: post-type/module-base.php:240
 msgid "The contacts connected to this prayer request."
-msgstr ""
+msgstr "Los contactos conectados a esta solicitud de oración."
 
 #: post-type/module-base.php:251
 msgid "Related Groups"
-msgstr ""
+msgstr "Grupos relacionados"
 
 #: post-type/module-base.php:252
 msgid "The groups connected to this prayer request."
-msgstr ""
+msgstr "Los grupos se conectaron a esta solicitud de oración."
 
 #: post-type/module-base.php:584
 msgid "Assigned to me"
-msgstr ""
+msgstr "Asignado a mí"
 
-#: post-type/module-base.php:592 post-type/module-base.php:649
+#: post-type/module-base.php:592
+#: post-type/module-base.php:649
 #: post-type/module-base.php:657
 msgid "All"
-msgstr ""
+msgstr "Todo"
 
 #: tile/custom-tile.php:63
 msgid "Prayer Request Title"
-msgstr ""
+msgstr "Título de solicitud de oración"
 
+#. This is a duplicate
 #: tile/custom-tile.php:64
 msgctxt "Optional Documentation"
 msgid "Prayer Request Title"
-msgstr ""
+msgstr "Título de solicitud de oración"
 
 #: tile/custom-tile.php:72
 msgid "Prayer Request Content"
-msgstr ""
+msgstr "Contenido de solicitud de oración"
 
 #: tile/custom-tile.php:73
 msgctxt "Optional Documentation"
 msgid "Prayer Request Content"
-msgstr ""
+msgstr "Contenido de solicitud de oración"
 
 #: tile/custom-tile.php:151
 msgctxt "Prayer Request for this Contact"
 msgid "Prayer Request for this %s"
-msgstr ""
+msgstr "Solicitud de oración para esto"
 
 #: tile/custom-tile.php:293
 msgid "Create Prayer Request"
-msgstr ""
+msgstr "Crear solicitud de oración"
+
