@@ -60,10 +60,10 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
     }
 
     public function after_setup_theme(){
+        $this->single_name = __( "Prayer Request", 'disciple-tools-prayer-requests' );
+        $this->plural_name = __( "Prayer Requests", 'disciple-tools-prayer-requests' );
+        
         if ( class_exists( 'Disciple_Tools_Post_Type_Template' ) ) {
-            $this->single_name = __( "Prayer Request", 'disciple-tools-prayer-requests' );
-            $this->plural_name = __( "Prayer Requests", 'disciple-tools-prayer-requests' );
-
             new Disciple_Tools_Post_Type_Template( $this->post_type, $this->single_name, $this->plural_name );
         }
     }
@@ -104,7 +104,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                 $expected_roles[$role]["permissions"]['access_' . $this->post_type ] = true;
                 $expected_roles[$role]["permissions"]['create_' . $this->post_type] = true;
                 // $expected_roles[$role]["permissions"]['update_' . $this->post_type] = true;
-                $expected_roles[$role]["permissions"]['view_any_'.$this->post_type ] = true;
+                // $expected_roles[$role]["permissions"]['view_any_'.$this->post_type ] = true;
             }
         }
 
