@@ -156,7 +156,7 @@ class Disciple_Tools_Prayer_Requests_Tile
                         ?>
                         <a href="<?php echo esc_html( $prayer_request_post["permalink"] ) ?>" class="prayer_request_link">
 
-                        <img class="dt-icon" <?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( 'style=opacity:0.35' ); } ?> src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> <?php echo esc_html( $prayer_request_post["title"] ) ?><?php if ( $prayer_request_post['status']['key'] === 'answered' ) { echo esc_html( ' - '. $prayer_request_post['status']['label'] ); } ?></a><br>
+                        <img class="dt-icon" <?php if ( $prayer_request_post['status']['key'] !== 'active' ) { echo esc_html( 'style=opacity:0.35' ); } ?> src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/praying-hands.svg"> <?php echo esc_html( $prayer_request_post["title"] ) ?><?php if ( $prayer_request_post['status']['key'] !== 'active' ) { echo esc_html( ' - '. $prayer_request_post['status']['label'] ); } ?></a><br>
                     <?php }
                 } ?>
             <?php } elseif ( $post_type === "prayer_request" ) { ?>
