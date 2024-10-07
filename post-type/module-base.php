@@ -62,7 +62,7 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
     public function after_setup_theme(){
         $this->single_name = __( "Prayer Request", 'disciple-tools-prayer-requests' );
         $this->plural_name = __( "Prayer Requests", 'disciple-tools-prayer-requests' );
-        
+
         if ( class_exists( 'Disciple_Tools_Post_Type_Template' ) ) {
             new Disciple_Tools_Post_Type_Template( $this->post_type, $this->single_name, $this->plural_name );
         }
@@ -108,6 +108,16 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
             }
         }
 
+        //
+        if ( isset( $expected_roles["multiplier"] ) ){
+            $expected_roles['multiplier']["permissions"]['view_any_'.$this->post_type ] = true;
+        }
+        if ( isset( $expected_roles["marketer"] ) ){
+            $expected_roles['marketer']["permissions"]['view_any_'.$this->post_type ] = true;
+        }
+        if ( isset( $expected_roles["dispatcher"] ) ){
+            $expected_roles['dispatcher']["permissions"]['view_any_'.$this->post_type ] = true;
+        }
         if ( isset( $expected_roles["administrator"] ) ){
             $expected_roles["administrator"]["permissions"]['view_any_'.$this->post_type ] = true;
             $expected_roles["administrator"]["permissions"]['update_any_'.$this->post_type ] = true;
@@ -148,6 +158,11 @@ class Disciple_Tools_Prayer_Requests_Base extends DT_Module_Base {
                         'label' => __( 'Active', 'disciple-tools-prayer-requests' ),
                         'description' => __( 'Prayer request is active.', 'disciple-tools-prayer-requests' ),
                         'color' => "#4CAF50"
+                    ],
+                    'inactive' => [
+                        'label' => __( 'Inactive', 'disciple-tools-prayer-requests' ),
+                        'description' => __( 'Prayer request is inactive.', 'disciple-tools-prayer-requests' ),
+                        'color' => "#FFC107"
                     ],
                 ],
                 'tile'     => 'status',
